@@ -11,6 +11,14 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
+  const demoSignIn = () => {
+    setUsername("Daniel")
+    setPassword("Password1")
+    const user = {username: 'Daniel', password: 'Password1'}
+
+    return dispatch(sessionActions.login(user))
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -53,6 +61,8 @@ function LoginForm() {
         />
       </label>
       <button type="submit">Log In</button>
+      <button onClick={demoSignIn}>Sign In with Demo User</button>
+
     </form>
   );
 }

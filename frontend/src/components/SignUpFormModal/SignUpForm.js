@@ -11,6 +11,15 @@ function SignUpForm() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
+
+  const demoSignIn = () => {
+    setUsername("Daniel")
+    setPassword("Password1")
+    const user = {username: 'Daniel', password: 'Password1'}
+
+    return dispatch(sessionActions.login(user))
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -18,30 +27,25 @@ function SignUpForm() {
     // console.log(username);
 
     dispatch(sessionActions.signup({ username, password }))
-      // .catch(async (res) => {
-      //   let data;
-      //   try {
-      //     // .clone() essentially allows you to read the response body twice
-      //     data = await res.clone().json();
+      .catch(async (res) => {
+        let data;
+        try {
+          // .clone() essentially allows you to read the response body twice
+          data = await res.clone().json();
           
-      //   } catch {
-      //     data = await res.text(); // Will hit this case if the server is down
-      //   }
-      //   if (data?.errors) setErrors(data.errors);
-      //   else if (data) setErrors([data]);
-      //   else setErrors([res.statusText]);
-      // })
-
-
-      .then(
-        
-        dispatch(sessionActions.login({username, password }))
-        )
+        } catch {
+          data = await res.text(); // Will hit this case if the server is down
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      })
 
     
   };
 
   return (
+    <div>
     <form onSubmit={handleSubmit}>
       <ul>
         {errors.map(error => <li key={error}>{error}</li>)}
@@ -66,6 +70,8 @@ function SignUpForm() {
       </label>
       <button type="submit">Sign Up</button>
     </form>
+      <button onClick={demoSignIn}>Sign In with Demo User</button>
+      </div>
   );
 }
 
