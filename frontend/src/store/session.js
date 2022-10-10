@@ -23,7 +23,9 @@ const storeCSRFToken = (response) => {
 
 const storeCurrentUser = (user) => {
   if (user) sessionStorage.setItem("currentUser", JSON.stringify(user));
-  else sessionStorage.removeItem("currentUser");
+  // else sessionStorage.removeItem("currentUser")
+  else sessionStorage.setItem("currentUser", null)
+  ;
 };
 
 export const login = (user) => async (dispatch) => {
@@ -36,18 +38,17 @@ export const login = (user) => async (dispatch) => {
     }),
   });
   const data = await res.json();
-  console.log(data)
-  console.log('test')
-  dispatch(setCurrentUser(data.username));
+  console.log(data);
+  dispatch(setCurrentUser(data.user));
   return res;
 };
 
-export const logout = (userId) => async (dispatch) => {
+export const logout = () => async (dispatch) => {
   const res = await csrfFetch("/api/session", {
     method: "DELETE",
   });
   sessionStorage.setItem("currentUser", null);
-  dispatch(removeCurrentUser(userId));
+  dispatch(removeCurrentUser());
   return res;
 };
 

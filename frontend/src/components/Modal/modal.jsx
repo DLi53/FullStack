@@ -1,43 +1,40 @@
-import React from 'react';
-import { closeModal } from '../../actions/modal_actions';
-import { connect } from 'react-redux';
-import LoginFormContainer from '../session_form/login_form_container';
-import SignupFormContainer from '../session_form/signup_form_container';
+// frontend/src/context/Modal.js
 
-function Modal({modal, closeModal}) {
-  if (!modal) {
-    return null;
-  }
-  let component;
-  switch (modal) {
-    case 'login':
-      component = <LoginFormContainer />;
-      break;
-    case 'signup':
-      component = <SignupFormContainer />;
-      break;
-    default:
-      return null;
-  }
+import React, { useContext, useRef, useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import './Modal.css';
+
+const ModalContext = React.createContext();
+
+export function ModalProvider({ children }) {
+  const modalRef = useRef();
+  const [value, setValue] = useState();
+
+  useEffect(() => {
+    setValue(modalRef.current);
+  }, [])
+
   return (
-    <div className="modal-background" onClick={closeModal}>
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
-        { component }
-      </div>
-    </div>
+    <>
+      <ModalContext.Provider value={value}>
+        {children}
+      </ModalContext.Provider>
+      <div ref={modalRef} />
+    </>
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    modal: state.ui.modal
-  };
-};
+export function Modal({ onClose, children }) {
+  const modalNode = useContext(ModalContext);
+  if (!modalNode) return null;
 
-const mapDispatchToProps = dispatch => {
-  return {
-    closeModal: () => dispatch(closeModal())
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+  return ReactDOM.createPortal(
+    <div id="modal">
+      <div id="modal-background" onClick={onClose} />
+      <div id="modal-content">
+        {children}
+      </div>
+    </div>,
+    modalNode
+  );
+}

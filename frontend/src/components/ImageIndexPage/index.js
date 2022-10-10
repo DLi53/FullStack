@@ -18,7 +18,6 @@ const ImageIndexPage = () => {
 
     return ( 
         <div className="imageIndexPage">
-            <NavBar/>
             <ul className="imagesList">
                 {imageList}
             </ul>

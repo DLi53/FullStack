@@ -1,10 +1,27 @@
 import './index.css'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import LoginFormModal from '../LoginFormModal';
+import SignUpFormModal from '../SignUpFormModal';
+
 
 const NavBar = () => {
     const sessionUser = useSelector((state) => state.session.user);
-    
+    let sessionLinks;
+
+    if (sessionUser) {
+        sessionLinks = ('hi'
+        // <ProfileButton user={sessionUser} />
+        );
+    } else {
+    sessionLinks = (
+      <>
+        <p><LoginFormModal /></p>
+        <p><SignUpFormModal/></p>
+        {/* <p><Link to="/signup">Sign Up</Link></p> */}
+      </>
+    );
+  }
     const dropDownEvent = () => {
         document.getElementById("myDropdown").classList.toggle("show")
     }
@@ -13,8 +30,9 @@ const NavBar = () => {
         <div className = "navBar">
             <p><a href=""><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png?20160129083321" alt="" /></a></p>
             <p>Logged Out Nav</p>
-            <p><Link to='/login'>Login</Link></p>
-            <p><Link to='/signp'>Sign Up</Link></p>
+            {sessionLinks}
+            {/* <p><Link to='/login'>Login</Link></p>
+            <p><Link to='/signp'>Sign Up</Link></p> */}
         </div>
 
     )
