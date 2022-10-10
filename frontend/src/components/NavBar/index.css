@@ -1,0 +1,9 @@
+.navBar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo {
+    height: 30px;
+    width: 30px
+}
