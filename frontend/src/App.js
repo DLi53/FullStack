@@ -1,7 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 import ImageIndexPage from "./components/ImageIndexPage";
-import LoginFormContainer from "./components/session_form/login_form_container";
-import SignupFormContainer from "./components/session_form/signup_form_container";
+// import LoginFormContainer from "./components/session_form/login_form_container";
+// import SignupFormContainer from "./components/session_form/signup_form_container";
 import NavBar from "./components/NavBar";
 import SplashPage from "./components/SplashPage";
 import Modal from './components/Modal/modal.jsx';
@@ -22,10 +22,10 @@ function App() {
           <ImageIndexPage/>
         </Route>
         <Route path="/login">
-          <LoginFormContainer />
+          {/* <LoginFormContainer /> */}
         </Route>
         <Route path="/signup">
-          <SignupFormContainer />
+          {/* <SignupFormContainer /> */}
         </Route>
       </Switch>
     </>

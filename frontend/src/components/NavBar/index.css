@@ -1,9 +1,160 @@
+
 .navBar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    flex: 1;
+    /* margin-left: auto;
+    margin-right: auto; */
+    padding-inline: 2%;
+    height: 40px;
+    /* margin-block: 2%; */
+    padding-block: 2%;
+    top: 0%;
+    position: sticky;
+    background-color: white;
+}
+
+
+a {
+    text-decoration: none;
+    color: rgb(118, 118, 118);
 }
 
 .logo {
-    height: 30px;
-    width: 30px
+    height: 35px;
+    width: 35px
 }
+
+.frontNav {
+    display: flex;
+    justify-content: space-around;
+    margin-inline: 3%;
+    font-size: 18px;
+    color: black;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.navLinkCreate {
+    color: black;
+}
+
+.navLinkHome{
+    color: white;
+    background-color: black;
+    padding: 12px;
+    padding-block: 15px;
+    border-radius: 24px
+}
+
+.frontNav div {
+    margin-inline: 3%;
+    
+}
+
+
+
+.backNav {
+    display: flex;
+    justify-content: space-around;
+    margin-right: 5%;
+}
+
+.search {
+    display: flex;
+    justify-content: left;
+    padding-block: 3%;
+    margin-left: 5%;
+    font-size: 20px;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.searchInput {
+    border: none;
+    background-color: rgb(233, 233, 233);
+    font-size: 16px;
+    outline: none;
+    margin-left: 1%;
+
+}
+
+#search {
+    /* padding-top: 1%; */
+    font-size: 14px;
+    color: rgb(118, 118, 118)
+}
+
+.searchBar {
+    /* display: flex; */
+    /* flex: 1; */
+    width: 90%;
+    /* height: 50%; */
+    /* font-size: 20px; */
+    background-color: rgb(233, 233, 233);
+    border-radius: 25px;
+    margin-right: 5%;
+    margin-left: 1%;
+    align-items: center;
+}
+
+.icons {
+    font-size: 25px;
+    color: rgb(118, 118, 118);
+    padding: 10%
+}
+
+.icons:hover {
+    background-color: rgb(233,233,233);
+    border-radius: 25px;
+}
+
+.sessionButtons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 7%
+}
+
+.sessionbutt {
+    display: flex;
+    justify-content: center;
+    padding-left: 15px;
+}
+
+.sessionButtons p {
+    margin-inline: 5%;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.sessionButtons p:hover {
+    text-decoration: underline;
+}
+
+.sessionButtons button {
+    padding: 10px;
+    border-radius: 25px;
+    border:none;
+    white-space: nowrap;
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.loginButton {
+    background-color: rgb(230, 0, 35);
+    color: white
+}
+
+.sessionButtons .loginButton:hover {
+    background-color: rgb(200, 0, 35);
+}
+
+.sessionButtons button:hover {
+    background-color: rgb(200, 200, 200);
+}
+

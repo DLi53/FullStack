@@ -23,4 +23,80 @@
 #modal-content {
     position: absolute;
     background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 500px;
+    height: 550px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.modalDetails {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 200px;
+    width: 250px;
+
+}
+
+.or {
+    display: flex;
+    justify-content: center;
+}
+
+.modalInputs{
+    width: 90%;
+    height: 35px;
+    border-radius: 15px;
+    border-color: rgba(167, 167, 167, 0.568);
+    padding-inline: 5%;
+    font-size: 18px;
+}
+
+.modalButton {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    background-color: rgb(230, 0, 35);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.modalButton:hover {
+    background-color: rgb(200, 0, 30);
+}
+
+.modalButtonDemo:hover {
+    background-color: rgb(24, 104, 213);
+}
+
+.modalButtonDemo {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    background-color: rgb(24, 119, 242);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#x {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 80%;
+
+}
+
+.mLogo {
+    height: 50px;
+    /* padding-top: 10px; */
 }
