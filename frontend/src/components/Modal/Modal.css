@@ -31,7 +31,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    animation: fadeIn 2s;
+    /* transition: top 0.4s */
+}
+
+@keyframes mymove {
+    from {
+        top: -100%;
+    }
+    to {
+        top: 20%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0%;
+    }
+
+    to {
+        opacity: 100%;
+    }
 }
 
 .modalDetails {

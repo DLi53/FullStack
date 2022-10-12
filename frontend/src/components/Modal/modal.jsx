@@ -3,6 +3,7 @@
 import React, { useContext, useRef, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.css';
+import logo from '../../assets/images/wink-xxl.png'
 
 const ModalContext = React.createContext();
 
@@ -33,8 +34,9 @@ export function Modal({ onClose, children }) {
       <div id="modal-background" onClick={onClose} />
       <div id="modal-content">
         <div id="x" onClick={onClose}>X</div>
-        <div className='modalLogo'><a href=""><img className="mLogo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png?20160129083321" alt="" /></a></div>
-        <div><h1>Welcome to Pinterest</h1></div>
+        {/* <div className='modalLogo'><a href=""><img className="mLogo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png?20160129083321" alt="" /></a></div> */}
+        <div className='modalLogo'><a href=""><img className="mLogo" src={logo} alt="" /></a></div>
+        <div><h1>Welcome to Winkterest</h1></div>
         <div>{children}</div>
 
       </div>

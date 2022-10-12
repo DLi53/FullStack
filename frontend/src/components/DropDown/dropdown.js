@@ -36,7 +36,7 @@ const DropDown = () => {
 
     return ( 
            <div className="dropdown">
-                <button className='dropbtn' onClick={openMenu}><i class="fa-solid fa-angle-down"></i></button>
+                <button className='dropbtn' onClick={openMenu}><i className="fa-solid fa-angle-down"></i></button>
                 {showMenu && (
                     <div className='dropdown-content'>
                         <div> Currently in</div>

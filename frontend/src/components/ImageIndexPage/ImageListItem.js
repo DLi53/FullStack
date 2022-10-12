@@ -1,5 +1,6 @@
 const ImageListItem = ({image}) => {
     // console.log(image.uploaderId);
+    console.log(image);
 
     return ( 
         <div className="imageListItem" key={image.id}>
@@ -8,6 +9,8 @@ const ImageListItem = ({image}) => {
                 <li>Title: {image.title}</li>
                 <li>Description: {image.description}</li>
                 <li>Uploader_id: {image.uploaderId}</li>
+                <li>URL: {image.photoUrl}</li>
+                <img className="imgIdx" src={image.photoUrl} alt="" />
                 <br />
             </ul>
         </div>

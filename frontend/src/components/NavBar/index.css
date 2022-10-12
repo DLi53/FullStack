@@ -8,12 +8,16 @@
     padding-inline: 2%;
     height: 40px;
     /* margin-block: 2%; */
-    padding-block: 2%;
+    padding-block: 1.5%;
     top: 0%;
     position: sticky;
     background-color: white;
 }
 
+.navLogo {
+    display: flex;
+    justify-content: flex-start;
+}
 
 a {
     text-decoration: none;
@@ -23,6 +27,10 @@ a {
 .logo {
     height: 35px;
     width: 35px
+}
+.logo2 {
+    height: 35px;
+    width: 150px
 }
 
 .frontNav {
@@ -64,8 +72,8 @@ a {
 .search {
     display: flex;
     justify-content: left;
-    padding-block: 3%;
-    margin-left: 5%;
+    padding-block: 2%;
+    margin-left: 3%;
     font-size: 20px;
     align-items: center;
     padding-top: 10px;
@@ -77,6 +85,7 @@ a {
     font-size: 16px;
     outline: none;
     margin-left: 1%;
+    width: 92%
 
 }
 

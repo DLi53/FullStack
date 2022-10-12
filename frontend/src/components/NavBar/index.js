@@ -6,6 +6,8 @@ import SignUpFormModal from '../SignUpFormModal';
 import * as sessionActions from '../../store/session'
 import SearchBar from '../SearchBar/searchBar';
 import DropDown from '../DropDown/dropdown';
+import logo from '../../assets/images/wink-xxl.png'
+import logo2 from '../../assets/images/WinkText.png'
 
 
 const NavBar = () => {
@@ -33,8 +35,13 @@ const NavBar = () => {
 
 
     const loggedOutNav = (
-        <div className = "navBar">
-            <div><a href=""><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png?20160129083321" alt="" /></a></div>
+        <div className = "navBar"> 
+            <div className='navLogo'>
+                <div><a href=""><img className="logo" src={logo} /></a></div>
+                <div><a href=""><img className="logo2" src={logo2} /></a></div>
+
+                {/* <div><a href=""><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png?20160129083321" alt="" /></a></div> */}
+            </div>
 
             {sessionLinks}
             {/* <p><Link to='/login'>Login</Link></p>
@@ -44,18 +51,21 @@ const NavBar = () => {
     )
     const loggedInNav = ( 
         <div className="navBar">
+                {/* <div><a href=""><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png?20160129083321" alt="" /></a></div> */}
+                <div><a href=""><img className="logo" src={logo} /></a></div>
+
+
             <div className="frontNav">
-                <div><a href=""><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png?20160129083321" alt="" /></a></div>
                 <div id='navLinkHome'><Link to="/" className='navLinkHome'>Home</Link></div>
                 <div className='navLink'><Link to="/" className='navLinkCreate'>Create</Link></div>
             </div>
             <div className='searchBar'><SearchBar></SearchBar></div>
 
             <div className='backNav'>
-                <div className='icons'><a href="github.com"><i class="fa-brands fa-github"></i></a></div>
-                <div className='icons'><a href="linkedin.com"><i class="fa-brands fa-linkedin-in"></i></a></div>
-                <div className='icons'><a href=""><i class="fa-solid fa-user"></i></a></div>
-                <div className='icons'><DropDown></DropDown></div>
+                <div className='icons'><a href="github.com"><i className="fa-brands fa-github"></i></a></div>
+                <div className='icons'><a href="linkedin.com"><i className="fa-brands fa-linkedin-in"></i></a></div>
+                <div className='icons'><a href=""><i className="fa-solid fa-user"></i></a></div>
+                <div className='icon'><DropDown></DropDown></div>
             </div>
         </div>
      );

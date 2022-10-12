@@ -1,3 +1,8 @@
 .imageIndexPage {
     background-color: yellow;
 }
+
+.imgIdx {
+    max-width: 30%;
+    border-radius: 25px;
+}
