@@ -5,7 +5,7 @@ import ImageIndexPage from "./components/ImageIndexPage";
 import NavBar from "./components/NavBar";
 import SplashPage from "./components/SplashPage";
 import Modal from './components/Modal/modal.jsx';
-
+import ImageShowPage from "./components/ImageShowPage";
 
 
 
@@ -21,8 +21,8 @@ function App() {
           {/* <SplashPage /> */}
           <ImageIndexPage/>
         </Route>
-        <Route path="/login">
-          {/* <LoginFormContainer /> */}
+        <Route path="/pins/:id">
+          <ImageShowPage/>
         </Route>
         <Route path="/signup">
           {/* <SignupFormContainer /> */}

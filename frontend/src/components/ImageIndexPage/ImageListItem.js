@@ -1,6 +1,6 @@
 const ImageListItem = ({image}) => {
     // console.log(image.uploaderId);
-    console.log(image);
+
 
     return ( 
         <div className="imageListItem" key={image.id}>

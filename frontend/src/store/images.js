@@ -11,7 +11,7 @@ return {
 }};
 
 export const fetchImages = () => async dispatch => {
-  const res = await csrfFetch(`api/images`);
+  const res = await csrfFetch(`/api/images`);
   const data = await res.json();
   dispatch(receiveImages(data));
 }
@@ -27,7 +27,7 @@ return {
 }};
 
 export const fetchImage = (imageId) => async dispatch => {
-  const res = await csrfFetch(`api/images/${imageId}`);
+  const res = await csrfFetch(`/api/images/${imageId}`);
   const data = await res.json();
   dispatch(receiveImage(data));
 }
