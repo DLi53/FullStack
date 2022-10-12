@@ -2,28 +2,28 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import ImageListItem from "../ImageIndexPage/ImageListItem";
-import { fetchImage } from '../../store/images';
-
+import { fetchImages, fetchImage } from '../../store/images';
+import './index.css'
 
 const ImageShowPage = () => {
     const dispatch = useDispatch()
-    const {id} = useParams()
+    let {id} = useParams()
+    id = Number(id)
 
+    const image = useSelector(state => state.images)
+    // console.log(image, 'imagee')
+    
+    const imagedeets = image[id]
 
-    const image = useSelector(state => Object.values(state.images))
-
-
+     
     useEffect(() => {
-        // e.preventDefault()
-
-        // debugger
         dispatch(fetchImage(id))
-    },[])
+    },[id])
 
 
     return ( 
         <div>
-            <ImageListItem image={image[0]} />
+            {imagedeets && <ImageListItem image={imagedeets} />}
         </div>
      );
 }

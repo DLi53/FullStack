@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ImageListItem = ({image}) => {
     // console.log(image.uploaderId);
 
@@ -9,8 +11,8 @@ const ImageListItem = ({image}) => {
                 <li>Title: {image.title}</li>
                 <li>Description: {image.description}</li>
                 <li>Uploader_id: {image.uploaderId}</li>
-                <li>URL: {image.photoUrl}</li>
-                <img className="imgIdx" src={image.photoUrl} alt="" />
+                {/* <li>URL: {image.photoUrl}</li> */}
+                <Link to={`/pins/${image.id}`}><img className="imgIdx" src={image.photoUrl} alt="" /></Link>
                 <br />
             </ul>
         </div>
