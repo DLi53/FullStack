@@ -14,7 +14,7 @@ const ImageIndexPage = () => {
         dispatch(fetchImages())
     },[])
 
-// console.log(images);
+
     const imageListItems = images.map(image => <ImageListItem image={image} key={image.id}/>)
 
     const index =( 

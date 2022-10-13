@@ -11,7 +11,7 @@ const ImageShowPage = () => {
     id = Number(id)
 
     const image = useSelector(state => state.images)
-    // console.log(image, 'imagee')
+
     
     const imagedeets = image[id]
 

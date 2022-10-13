@@ -23,8 +23,7 @@ function SignUpForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    // console.log(password);
-    // console.log(username);
+
 
     dispatch(sessionActions.signup({ username, password }))
       .catch(async (res) => {

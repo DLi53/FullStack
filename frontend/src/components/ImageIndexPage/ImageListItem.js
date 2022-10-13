@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const ImageListItem = ({image}) => {
-    // console.log(image.uploaderId);
+
 
 
     return ( 
