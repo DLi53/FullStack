@@ -5,9 +5,31 @@
 
 
 .imgIdx {
-    max-width: 30%;
+    max-width: 100%;
     /* max-height: 70%; */
     border-radius: 25px;
 
-    
+
 }
+/* ul.imagesList {
+    padding-left: 0;
+} */
+.imagesList {
+    padding-inline: 5%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* grid-template-rows: masonry; */
+    /* align-tracks: stretch; */
+}
+
+ul {
+    list-style-type: none;
+    padding-inline: 3%;
+}
+/* 
+li {
+    padding-inline: 0%
+} */
+
+
+
