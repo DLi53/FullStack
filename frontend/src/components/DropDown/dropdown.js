@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session'
 import './dropdown.css'
 
@@ -9,7 +9,7 @@ const DropDown = () => {
     const dispatch = useDispatch()
     const [showMenu, setShowMenu] = useState(false)
     const sessionUser = useSelector((state) => state.session.user)
-
+    const history = useHistory()
 
     const openMenu = () => {
         if (showMenu) return;
@@ -30,6 +30,8 @@ const DropDown = () => {
     const logoutClick = (e) => {
         e.preventDefault();
         dispatch(sessionActions.logout())
+        .then(()=> {history.push("/")})
+
     }
 
     //make function to show dropdown or nah

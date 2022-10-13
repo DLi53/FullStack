@@ -36,22 +36,13 @@
 }
 
 @keyframes mymove {
-    from {
-        top: -100%;
-    }
-    to {
-        top: 20%;
-    }
+    from { top: -100%; }
+    to { top: 20%; }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0%;
-    }
-
-    to {
-        opacity: 100%;
-    }
+    from { opacity: 0%; }
+    to { opacity: 100%; }
 }
 
 .modalDetails {

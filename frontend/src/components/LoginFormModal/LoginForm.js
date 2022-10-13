@@ -12,9 +12,9 @@ function LoginForm() {
   const [errors, setErrors] = useState([]);
 
   const demoSignIn = () => {
-    setUsername("Daniel")
+    setUsername("DemoUser")
     setPassword("Password1")
-    const user = {username: 'Daniel', password: 'Password1'}
+    const user = {username: 'DemoUser', password: 'Password1'}
 
     return dispatch(sessionActions.login(user))
   }

@@ -1,7 +1,7 @@
 const SplashPage = () => {
     return ( 
         <div className="splashPage">
-            Test Test Tes
+            <h1>Test Test Test Splish Splash Page</h1>
             
         </div>
      );
