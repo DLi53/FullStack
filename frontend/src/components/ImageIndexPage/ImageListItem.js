@@ -17,11 +17,16 @@ const ImageListItem = ({image, user}) => {
     return ( 
         <div className="imageListItem" key={image.id}>
             {/* <ul> */}
-                <li><Link to={`/pins/${image.id}`}><img className="imgIdx" src={image.photoUrl} alt="" /></Link></li>
+                <div className="imagePic">
+                    <div className="overlay">OVERLAYYY</div>
+                    <Link to={`/pins/${image.id}`}><img className="imgIdx" src={image.photoUrl} alt="" /></Link>
+                </div>
                 {/* <li>ID: {image.id}</li> */}
-                {/* <li>Title: {image.title}</li> */}
                 {/* <li>Description: {image.description}</li> */}
-                <li>Uploader_id: {user && user.username}</li>
+                <div className="indexDetails">
+                    <div>{image.title}</div>
+                    <div>{user && user.username}</div>
+                </div>
                 <br />
                 {/* <li>URL: {image.photoUrl}</li> */}
                 <br />

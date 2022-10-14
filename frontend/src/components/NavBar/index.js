@@ -57,7 +57,7 @@ const NavBar = () => {
 
             <div className="frontNav">
                 <div id='navLinkHome'><Link to="/" className='navLinkHome'>Home</Link></div>
-                <div className='navLink'><Link to="/" className='navLinkCreate'>Create</Link></div>
+                <div className='navLink'><Link to="/pin-builder" className='navLinkCreate'>Create</Link></div>
             </div>
             <div className='searchBar'><SearchBar></SearchBar></div>
 
