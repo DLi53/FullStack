@@ -37,7 +37,7 @@ class User < ApplicationRecord
     foreign_key: :followee_id,
     dependent: :destroy
 
-  has_many :following_connet,
+  has_many :following_connect,
     class_name: :Follow,
     foreign_key: :follower_id,
     dependent: :destroy
@@ -47,11 +47,10 @@ class User < ApplicationRecord
     source: :fallower
     
   has_many :following,
-    through: :following_connet,
+    through: :following_connect,
     source: :followee_id
 
-
-
+  has_one_attached :profilepic
 
 
   def self.find_by_credentials(username, password)

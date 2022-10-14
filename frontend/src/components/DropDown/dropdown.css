@@ -54,3 +54,21 @@
 .show {
     display: block;
 }
+
+.currentlyIn {
+    font-size: 15px;
+}
+
+.dropdownProfile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.dropdownProfilePic {
+    margin-left:35%;
+    border-radius: 25px;
+    width: 50px;
+    height: 50px
+
+}

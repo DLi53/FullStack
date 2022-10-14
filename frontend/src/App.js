@@ -4,11 +4,22 @@ import NavBar from "./components/NavBar";
 import Modal from './components/Modal/modal.jsx';
 import ImageShowPage from "./components/ImageShowPage";
 import ImageCreatePage from "./components/ImageCreatePage";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchImages } from "./store/images";
+import { fetchUsers } from "./store/users";
 
 
 
 
 function App() {
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fetchImages())
+        dispatch(fetchUsers())
+    },[])
 
   return (
     <>

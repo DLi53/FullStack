@@ -11,21 +11,24 @@ const ImageListItem = ({image, user}) => {
     // console.log(image.uploaderId);
 
    
-    // console.log(user);
+    // console.log(user.profilePicUrl);
 
 
     return ( 
         <div className="imageListItem" key={image.id}>
             {/* <ul> */}
                 <div className="imagePic">
-                    <div className="overlay">OVERLAYYY</div>
+                    <div ><Link className="overlay" to={`/pins/${image.id}`}/></div>
                     <Link to={`/pins/${image.id}`}><img className="imgIdx" src={image.photoUrl} alt="" /></Link>
                 </div>
                 {/* <li>ID: {image.id}</li> */}
                 {/* <li>Description: {image.description}</li> */}
                 <div className="indexDetails">
-                    <div>{image.title}</div>
-                    <div>{user && user.username}</div>
+                    {/* <div>{image.title}</div> */}
+                    <div className="indexUser">
+                        <img src={user && user.profilePicUrl} alt="" className="userProfilePicIdx" />
+                        <div>{user && user.username}</div>
+                    </div>
                 </div>
                 <br />
                 {/* <li>URL: {image.photoUrl}</li> */}

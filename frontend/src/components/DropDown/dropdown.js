@@ -9,6 +9,9 @@ const DropDown = () => {
     const dispatch = useDispatch()
     const [showMenu, setShowMenu] = useState(false)
     const sessionUser = useSelector((state) => state.session.user)
+    const user = useSelector((state) => state.users[sessionUser.id])
+
+
     const history = useHistory()
 
     const openMenu = () => {
@@ -29,8 +32,9 @@ const DropDown = () => {
 
     const logoutClick = (e) => {
         e.preventDefault();
+        // console.log('yoo');
         dispatch(sessionActions.logout())
-        .then(()=> {history.push("/")})
+        .then(()=> { history.push("/")})
 
     }
 
@@ -41,8 +45,13 @@ const DropDown = () => {
                 <button className='dropbtn' onClick={openMenu}><i className="fa-solid fa-angle-down"></i></button>
                 {showMenu && (
                     <div className='dropdown-content'>
-                        <div> Currently in</div>
-                        <Link to="/">Profile of {sessionUser.username} </Link>
+                        <div className="currentlyIn"> Currently in</div>
+                        <br />
+                        <img className="dropdownProfilePic" src={user && user.profilePicUrl} alt="" />
+                        <br />
+                        <Link className="dropdownProfile" to="/">
+                            Profile of {sessionUser.username} 
+                        </Link>
                         <Link to="/" onClick={logoutClick}>Log Out</Link>
                     </div>
                 )}

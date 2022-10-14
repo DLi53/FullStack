@@ -22,8 +22,41 @@ const ImageShowPage = () => {
 
 
     return ( 
-        <div>
-            {imagedeets && <ImageListItem image={imagedeets} />}
+       <div className="imageShowPage">
+            <div className="imageShowBox">
+                
+
+                    <div className="picArea">
+                        <div className="leftSideShow">
+                            <img className="pictureUpload" src={imagedeets.photoUrl} alt="" />
+                        </div>
+
+                        <div className="rightside">
+                            <div className="saveArea">
+                                <input className="saveButton" type="submit" value="Save"/>
+                             </div>
+
+                            <input className="titleInput" type="text" 
+                                
+                                    placeholder="Add your title"
+                                    
+                            
+                            ></input>
+
+
+                            <div className="username">
+                                <img className="createProfilePic" src='' alt="" />
+                     
+                            </div>
+                            <input className="descriptionInput" 
+                            
+                            placeholder="Tell everyone what your Pin is about"
+   >
+                            </input>
+                        </div>
+                    </div>
+           
+            </div>
         </div>
      );
 }

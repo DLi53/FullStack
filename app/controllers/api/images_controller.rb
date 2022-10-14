@@ -1,5 +1,5 @@
 class Api::ImagesController < ApplicationController
-
+    wrap_parameters include: Image.attribute_names + [:photo]
     # skip_before_action :verify_authenticity_token
 
     def index
@@ -15,6 +15,8 @@ class Api::ImagesController < ApplicationController
 
     def create
         @image = Image.new(image_params)
+
+        p @image
         # if current_user
         #     @image.uploader_id = current_user.id
             if @image.save
@@ -49,7 +51,7 @@ class Api::ImagesController < ApplicationController
 
     private
     def image_params
-        params.require(:image).permit(:title, :description, :uploader_id)
+        params.require(:image).permit(:title, :description, :uploader_id, :photo)
     end
     
 end

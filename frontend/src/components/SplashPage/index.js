@@ -1,4 +1,6 @@
 import SplashPics from "./splashpics";
+import './SplashPage.css'
+import splash from './ezgif.com-gif-maker.gif'
 
 const SplashPage = () => {
 
@@ -8,12 +10,12 @@ const SplashPage = () => {
     // }
 
     return ( 
-        <div className="splashPage">
-            <h1>Test Test Test Splish Splash Page</h1>
-            {/* {pics} */}
+        <div className="splashPage" >
+            <img className="SPLISH" src={splash} alt="" />
+            {/* <h1>Test Test Test Splish Splash Page</h1>
             <SplashPics></SplashPics>
             <SplashPics></SplashPics>
-            <SplashPics></SplashPics>
+            <SplashPics></SplashPics> */}
 
         </div>
      );

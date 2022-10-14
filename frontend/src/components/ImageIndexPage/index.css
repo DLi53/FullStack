@@ -11,25 +11,30 @@
     /* margin-inline: 10px; */
 }
 
-.imgPic {
+.imagePic {
     position: relative;
     display: inline-block;
 }
 
-/* .overlay {
+.overlay {
     position: absolute;
     opacity: 0%;
     box-sizing: border-box;
+    width: 100%;
+    height:100%;
+    cursor: pointer
 }
 
 .overlay:hover {
-    z-index: 1000;
+    z-index: 1;
     position: absolute;
     display: block;
     width: 100%;
     box-sizing: border-box;
-    opacity: 100%;
-} */
+    background-color: black;
+    opacity: 50%;
+    border-radius: 25px;
+}
 
 
 /* ul.imagesList {
@@ -106,3 +111,14 @@ li {
     margin-bottom: 30px;
 }
 
+.indexUser {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.userProfilePicIdx {
+    border-radius: 25px;
+    height: 20px;
+    width: 20px;
+}

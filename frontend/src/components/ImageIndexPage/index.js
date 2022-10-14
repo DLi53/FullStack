@@ -12,16 +12,19 @@ const ImageIndexPage = () => {
     const images = useSelector(state => Object.values(state.images));
     const users = useSelector(state => (state.users));
     // console.log(users);
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(fetchImages())
-        dispatch(fetchUsers())
-    },[])
+    // useEffect(() => {
+    //     dispatch(fetchImages())
+    //     dispatch(fetchUsers())
+    // },[])
 
     const breakpointColumnsObj = {
-        default: 4,
-        1100: 3,
+        default: 7,
+        1700: 6,
+        1500: 5,
+        1200: 4,
+        1000: 3,
         700: 2,
         500: 1
     };
