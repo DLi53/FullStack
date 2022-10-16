@@ -9,7 +9,6 @@ const DropDown = () => {
     const dispatch = useDispatch()
     const [showMenu, setShowMenu] = useState(false)
     const sessionUser = useSelector((state) => state.session.user)
-    const user = useSelector((state) => state.users[sessionUser.id])
 
 
     const history = useHistory()
@@ -47,7 +46,7 @@ const DropDown = () => {
                     <div className='dropdown-content'>
                         <div className="currentlyIn"> Currently in</div>
                         <br />
-                        <img className="dropdownProfilePic" src={user && user.profilePicUrl} alt="" />
+                        <img className="dropdownProfilePic" src={sessionUser.profilePicUrl} alt="" />
                         <br />
                         <Link className="dropdownProfile" to="/">
                             Profile of {sessionUser.username} 

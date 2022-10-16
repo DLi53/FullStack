@@ -21,8 +21,7 @@ const ImageListItem = ({image, user}) => {
                     <div ><Link className="overlay" to={`/pins/${image.id}`}/></div>
                     <Link to={`/pins/${image.id}`}><img className="imgIdx" src={image.photoUrl} alt="" /></Link>
                 </div>
-                {/* <li>ID: {image.id}</li> */}
-                {/* <li>Description: {image.description}</li> */}
+                <br/>
                 <div className="indexDetails">
                     {/* <div>{image.title}</div> */}
                     <div className="indexUser">

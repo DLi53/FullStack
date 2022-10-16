@@ -1,6 +1,6 @@
 .imageShowPage {
-    background-color: rgb(230, 230, 230);
-    position: absolute;
+    /* background-color: rgb(250, 250, 230); */
+    /* position: absolute; */
     width: 100%;
     height: 100%;
     display: flex;
@@ -14,64 +14,34 @@
     background-color: white;
     height: 700px;
     width: 1000px;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     border-radius: 25px;
-
-}
-
-.saveArea {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10%;
-}
-
-
-.picArea {
-
-    display: flex;
-    height: 400px;
-    justify-content: space-between;
+    box-shadow: 0px 0px 10px 10px #f3f3f3;
+    margin-bottom: 100px
 }
 
 .leftSideShow {
-    top: 0;
-    width: 300px;
-    background-color: rgb(255, 255, 255);
-}
-
-
-/* .pictureUpload {
-width: 100%;
-} */
-
-.titleInput {
+    /* background-color: black; */
+    height: 100%;
     width: 100%;
-    font-size: 20px;
-    border: none;
-    padding-block: 20px;
-    border-bottom: 1px solid rgb(225, 225, 225);
-    margin-bottom: 20px;
-}
-
-.descriptionInput {
-    width: 100%;
-    font-size: 12px;
-    padding-block: 10px;
-    border: none;
-    border-bottom: 1px solid rgb(225, 225, 225);
-    margin-top: 20px;
-}
-
-.username {
+    position: relative;
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    margin-block: 20px
 }
 
-.createProfilePic {
-    border-radius: 25px;
-    width: 50px;
-    height: 50px;
-    margin-right: 20px;
+.rightSideShow {
+    height: 100%;
+    width: 100%;
+    position: relative;
 }
+.pictureUpload {
+    position: absolute;
+    top: .5;
+    left: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+}
+
