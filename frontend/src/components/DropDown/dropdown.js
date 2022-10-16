@@ -48,7 +48,7 @@ const DropDown = () => {
                         <br />
                         <img className="dropdownProfilePic" src={sessionUser.profilePicUrl} alt="" />
                         <br />
-                        <Link className="dropdownProfile" to="/">
+                        <Link className="dropdownProfile" to={`/user/${sessionUser.id}`}>
                             Profile of {sessionUser.username} 
                         </Link>
                         <Link to="/" onClick={logoutClick}>Log Out</Link>

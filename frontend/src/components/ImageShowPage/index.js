@@ -5,6 +5,7 @@ import ImageListItem from "../ImageIndexPage/ImageListItem";
 import { fetchImages, fetchImage } from '../../store/images';
 import './index.css'
 import DropDown from "../DropDown/dropdown";
+import { Link } from "react-router-dom";
 
 const ImageShowPage = () => {
     const dispatch = useDispatch()
@@ -14,7 +15,6 @@ const ImageShowPage = () => {
     const image = useSelector(state => state.images)
     const imagedeets = image[id]
     const userdeets = useSelector(state => state.users[imagedeets.uploaderId])
-    console.log(userdeets);
 
     useEffect(() => {
         dispatch(fetchImage(id))
@@ -28,15 +28,16 @@ const ImageShowPage = () => {
 
                     {/* <div className="picArea"> */}
                         <div className="leftSideShow" >
-                            <img className="pictureUpload" src={imagedeets.photoUrl} alt="" />
+                                <img className="pictureUpload" src={imagedeets.photoUrl} alt="" />
                         </div>
 
                         <div className="rightSideShow">
+                        <div className="insiderightSideShow">
                             <div className="topPartShow">
                                 <label htmlFor="">Profile
                                     <DropDown></DropDown>
                                </label>
-                               <button>Save</button>
+                               <button className="saveShow">Save</button>
                             </div>
 
                             <div className="title">
@@ -48,19 +49,19 @@ const ImageShowPage = () => {
                             </div>
 
                             <div className="userdeets">
-                                <div className="userdeetsleft">
-                                    <img src={userdeets.profilePicUrl} alt="" />
-                                    <h6>{userdeets.username}</h6>
-                                </div>
+                                <Link to={`/user/${userdeets.id}`} className="userdeetsleft">
+                                    <img className="profileIcon" src={userdeets.profilePicUrl} alt="" />
+                                    <h4>{userdeets.username}</h4>
+                                </Link>
                                 <div className="userdeetsright">
-                                    FOLLOW
+                                    <button className="followShow">Follow</button>
                                 </div>
                             </div>
 
                             <div className="commentsShow">
                                 COMMENTS ?
                             </div>
-
+                        </div>
                         </div>
                     {/* </div> */}
            

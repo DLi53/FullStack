@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchImages } from "./store/images";
 import { fetchUsers } from "./store/users";
+import UserShow from "./components/UserShow";
 
 
 
@@ -31,12 +32,16 @@ function App() {
         <Route exact path="/">
           <ImageIndexPage/>
         </Route>
+        <Route path="/user/:id">
+          <UserShow/>
+        </Route>
         <Route path="/pins/:id">
           <ImageShowPage/>
         </Route>
         <Route path="/pin-builder">
           <ImageCreatePage/>
         </Route>
+
       </Switch>
     </>
   );
