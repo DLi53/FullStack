@@ -15,10 +15,15 @@ const ImageShowPage = () => {
     const image = useSelector(state => state.images)
     const imagedeets = image[id]
     const userdeets = useSelector(state => state.users[imagedeets.uploaderId])
+    const currentUserId = useSelector(state => state.session.user.id)
 
     useEffect(() => {
         dispatch(fetchImage(id))
     },[id])
+
+    const editPage = <Link className="updateItem" to={`/pins/${id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Link>
+
+    const editButton = imagedeets.uploaderId === currentUserId ? editPage : ""
 
 
     return ( 
@@ -34,6 +39,7 @@ const ImageShowPage = () => {
                         <div className="rightSideShow">
                         <div className="insiderightSideShow">
                             <div className="topPartShow">
+                               {editButton}
                                 <label htmlFor="">Profile
                                     <DropDown></DropDown>
                                </label>

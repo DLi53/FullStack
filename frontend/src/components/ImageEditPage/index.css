@@ -1,0 +1,39 @@
+.topRight{
+    display: flex;
+    justify-content: space-between;
+}
+
+.deleteImage {
+    font-size: 20px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.cancelUpdate {
+
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.updateButton {
+    /* margin-top: 40px;
+    margin-left: 85%; */
+    border: none;
+    font-size: 18px;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 25px;
+    color: white;
+    background-color: rgb(230, 0, 35);
+}
+
+.cancelButton {
+    border: none;
+    font-size: 18px;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 25px;
+    color: black;
+    background-color: rgb(230, 230,230)
+}

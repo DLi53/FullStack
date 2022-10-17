@@ -5,8 +5,11 @@ import { fetchBoards } from "../../store/boards";
 import './index.css'
 import ImageListItem from "../ImageIndexPage/ImageListItem";
 import Masonry from "react-masonry-css";
+import { Link } from "react-router-dom";
+import BoardList from "../Boards/boardList";
 
-const UserShow = () => {
+const UserShow = ({message}) => {
+    // console.log(message);
     const dispatch = useDispatch()
     const {id} = useParams()
     const userdeets = useSelector(state => state.users[id])
@@ -22,11 +25,11 @@ const UserShow = () => {
         return arr
     })
 
+    const boardCreateLink = <Link to='/board-builder' className="plusCreateBoard"><i className="fa-solid fa-plus"></i></Link>
+    const pinCreateLink = <Link to='/pin-builder' className="plusCreateBoard"><i className="fa-solid fa-plus"></i></Link>
+    const createIt = createShow === "Create" ? pinCreateLink : boardCreateLink
 
-    useEffect((e) => {
-        dispatch(fetchBoards(id))
-        // dispatch(fetchUser(id))
-    }, [])
+
 
     const breakpointColumnsObj = {
         default: 7,
@@ -50,15 +53,17 @@ const UserShow = () => {
 
 
 
-    const shown = createShow === "Show" ? "created images here" :  imageListItems
+    const shown = createShow === "Show" ? <BoardList userId={userdeets.id}/> :  imageListItems
 
     return ( 
 
         <div className="userShow">
+            {message && message}
             <img className="userShowPic" src={userdeets.profilePicUrl} alt="" />
             <h1>{userdeets.username}</h1>
             <p>@{userdeets.username}</p>
             <br />
+
             <div className="createshow">
                 <div 
                     className="createdButton"
@@ -71,6 +76,7 @@ const UserShow = () => {
                     onClick = {(e) => setCreateShow("Show")}
                     >Show</div>
             </div>
+            {createIt}
             <br />
             <div className="CreateShowSection">
                 {shown}

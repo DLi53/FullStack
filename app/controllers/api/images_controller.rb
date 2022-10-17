@@ -17,6 +17,8 @@ class Api::ImagesController < ApplicationController
         @image = Image.new(image_params)
  
         if @image.save
+            pin = Pin.create!({image_id: @image.id, board_id: current_user.boards.first.id})
+
             render :show
         else
             render json: ["somethings wrong"]
@@ -36,6 +38,7 @@ class Api::ImagesController < ApplicationController
 
     def destroy
         @image = image.find(params[:id])
+        p @image
         if @image && @image.destroy
             render json: ["Pin is Gone"]
         else

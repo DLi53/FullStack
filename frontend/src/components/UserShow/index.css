@@ -17,6 +17,8 @@
     justify-content: space-around;
     font-size: 18px;
     font-weight: bold;
+    top:50;
+    position: sticky;
 }
 
 .createdButton {
@@ -25,6 +27,11 @@
     position: relative;
 }
 
+.createdButton:hover {
+    text-decoration: underline;
+}
+
+/* 
 .createdButton::after {
     opacity: 1;
     transform: scale(0);
@@ -35,8 +42,26 @@
 .createdButton:focus::after {
     transform: scale(1);
     text-decoration: underline;
-}
+} */
 
 .showButton {
     cursor: pointer;
+}
+
+.showButton:hover {
+    text-decoration: underline;
+}
+
+.plusCreateBoard {
+    margin-top: 20px;
+    margin-left: 80%;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 5px;
+    padding-inline: 9px;
+    border-radius: 40px;
+}
+
+.plusCreateBoard:hover {
+    background-color: rgb(230,230,230);
 }

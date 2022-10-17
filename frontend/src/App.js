@@ -9,7 +9,8 @@ import { useEffect } from "react";
 import { fetchImages } from "./store/images";
 import { fetchUsers } from "./store/users";
 import UserShow from "./components/UserShow";
-
+import ImageEditPage from "./components/ImageEditPage";
+import BoardCreate from "./components/Boards/boardCreate";
 
 
 
@@ -35,13 +36,18 @@ function App() {
         <Route path="/user/:id">
           <UserShow/>
         </Route>
+        <Route path="/pins/:id/edit">
+          <ImageEditPage/>
+        </Route>
         <Route path="/pins/:id">
           <ImageShowPage/>
         </Route>
         <Route path="/pin-builder">
           <ImageCreatePage/>
         </Route>
-
+        <Route path="/board-builder">
+          <BoardCreate/>
+        </Route>
       </Switch>
     </>
   );

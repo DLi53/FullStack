@@ -65,7 +65,9 @@ const NavBar = () => {
             <div className='backNav'>
                 <div className='icons'><a href="github.com"><i className="fa-brands fa-github"></i></a></div>
                 <div className='icons'><a href="linkedin.com"><i className="fa-brands fa-linkedin-in"></i></a></div>
-                <div className='icons'><a href=""><i className="fa-solid fa-user"></i></a></div>
+                {/* <div className='icons'><a href=""><i className="fa-solid fa-user"></i></a></div> */}
+                <div className='icons'><Link to={`/user/${sessionUser && sessionUser.id}`}><i className="fa-solid fa-user"></i></Link></div>
+
                 <div className='icon'><DropDown></DropDown></div>
             </div>
         </div>

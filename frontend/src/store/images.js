@@ -68,7 +68,7 @@ const updateImage = imageData => {
 }
 
 export const editImage = (imageData) => async dispatch => {
-    const res = await csrfFetch(`api/images/${imageData.id}`, {
+    const res = await csrfFetch(`/api/images/${imageData.id}`, {
         method: 'PATCH',
         body: JSON.stringify(imageData),
         headers:{
@@ -93,8 +93,11 @@ const removeImage = imageId => {
 }
 
 export const deleteImage = (imageId) => async dispatch => {
-    const res = await fetch(`api/images/${imageId}`, {
-        method: 'DELETE'
+    const res = await fetch(`/api/images/${imageId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
     })
     dispatch(removeImage(imageId))
 }

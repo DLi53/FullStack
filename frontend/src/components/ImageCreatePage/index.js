@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import csrfFetch from '../../store/csrf';
+import { fetchImages } from '../../store/images';
 
 import './index.css' 
 
 const ImageCreatePage = () => {
-    // const dispatch = useDispatch
+    const dispatch = useDispatch()
     const [photoFile, setPhotoFile] = useState(null);
     // const [imgData, setImgData] = useState(null);
     const [photoUrl, setPhotoUrl] = useState(null)
@@ -15,6 +17,10 @@ const ImageCreatePage = () => {
     const [uploaderId, setUploaderId] = useState(user.id)
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
+    const [uploaded, setUploaded] = useState('')
+    const [redirect, setRedirect] = useState(false)
+
+    
 
     const handleFile = e => {
         const file = e.currentTarget.files[0];
@@ -44,12 +50,22 @@ const ImageCreatePage = () => {
         });
         if (response.ok) {
             const message = await response.json();
-            console.log(message.message);
+            // console.log(message.message);
             setTitle("");
             setPhotoFile(null);
             setPhotoUrl(null);
+            console.log("success")
+            dispatch(fetchImages())
+            setUploaded('Photo has been uploaded!')
+            setTimeout(setRedirect(true), 5000)
+
         }
     }
+
+    if (redirect) {
+        return ( 
+        <Redirect to={`/user/${sessionUser.id}`} />
+    )}
 
 
     return ( 
@@ -94,9 +110,14 @@ const ImageCreatePage = () => {
                             placeholder="Tell everyone what your Pin is about"
                             onChange={(e) => setDescription(e.target.value)}>
                             </input>
+                            <br />
+                            <br />
+                            {uploaded}
                         </div>
                     </div>
                 </form>
+
+                
             </div>
         </div>
      );
