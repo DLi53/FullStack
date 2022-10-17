@@ -15,18 +15,13 @@ class Api::ImagesController < ApplicationController
 
     def create
         @image = Image.new(image_params)
+ 
+        if @image.save
+            render :show
+        else
+            render json: ["somethings wrong"]
+        end
 
-        p @image
-        # if current_user
-        #     @image.uploader_id = current_user.id
-            if @image.save
-                render :show
-            else
-                render json: ["somethings wrong"]
-            end
-        # else
-        #     return render json: ["Please Sign In"]
-        # end
     end
 
     def update

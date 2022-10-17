@@ -24,10 +24,10 @@ const ImageListItem = ({image, user}) => {
                 <br/>
                 <div className="indexDetails">
                     {/* <div>{image.title}</div> */}
-                    <div className="indexUser">
+                    {/* <div className="indexUser">
                         <img src={user && user.profilePicUrl} alt="" className="userProfilePicIdx" />
                         <div>{user && user.username}</div>
-                    </div>
+                    </div> */}
                 </div>
                 <br />
                 {/* <li>URL: {image.photoUrl}</li> */}

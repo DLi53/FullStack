@@ -3,16 +3,40 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .userShowPic{
-    height: 100px;
-    width: 120px;
-    border-radius: 50px;
+    height: 150px;
+    width: 160px;
+    border-radius: 100px;
 }
 
 .createshow {
     display: flex;
     justify-content: space-around;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.createdButton {
+    padding-right: 30px;
+    cursor: pointer;
+    position: relative;
+}
+
+.createdButton::after {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center
+}
+
+.createdButton:hover::after,
+.createdButton:focus::after {
+    transform: scale(1);
+    text-decoration: underline;
+}
+
+.showButton {
+    cursor: pointer;
 }
