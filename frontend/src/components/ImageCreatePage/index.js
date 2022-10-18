@@ -54,7 +54,7 @@ const ImageCreatePage = () => {
             setTitle("");
             setPhotoFile(null);
             setPhotoUrl(null);
-            console.log("success")
+
             dispatch(fetchImages())
             setUploaded('Photo has been uploaded!')
             setTimeout(setRedirect(true), 5000)

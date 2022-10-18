@@ -1,0 +1,18 @@
+.savePin {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.dropdownPin {
+    font-size: 20px;
+    border: none;
+    margin-right: 10px;
+    border-radius: 25px;
+    padding-left: 10px;
+    
+}
+
+.saveShow {
+    padding: 10px;
+}

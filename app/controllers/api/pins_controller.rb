@@ -15,8 +15,9 @@ class Api::PinsController < ApplicationController
 
     def create
         @pin = Pin.new(pin_params)
- 
         if @pin.save
+            debugger
+
             render :show
         else
             render json: ["somethings wrong"]

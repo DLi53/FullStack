@@ -10,13 +10,12 @@ const BoardShow = () => {
     const dispatch = useDispatch()
     const {boardId} = useParams()
 
-    console.log(boardId);
+
     const pins = useSelector(state => {
         let arr = []
         Object.values(state.pins).forEach(pin => {
-            // console.log(pin.boardId, boardId);
             if (pin.boardId === parseInt(boardId)) {
-                console.log(pin.boardId);
+
                 arr.push(pin.imageId)
             }
         })

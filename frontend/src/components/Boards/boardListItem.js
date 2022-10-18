@@ -29,8 +29,6 @@ const BoardListItem = ({board}) => {
 
     // .photoUrl || "http://weknowyourdreams.com/images/grey/grey-11.jpg"
 
-// console.log(pic3);
-// console.log(pic4);
 
     const boardCoverPic = 
     <Link to={`/board/${board.id}`} className="boardCover">

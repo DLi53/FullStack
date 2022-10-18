@@ -43,7 +43,7 @@ const addBoard = boardData => {
     }
 }
 export const createBoard = (boardData) => async dispatch => {
-console.log(boardData.currentUserId);
+
     const res = await csrfFetch(`/api/users/${boardData.currentUserId}/boards`, {
         method: 'POST',
         body: JSON.stringify(boardData),
@@ -51,7 +51,7 @@ console.log(boardData.currentUserId);
             'Content-Type': 'application/json'
         }
     })
-    console.log(res);
+
     const data = await res.json();
     dispatch(addBoard(data))
 }

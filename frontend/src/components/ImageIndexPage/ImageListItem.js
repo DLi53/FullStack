@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchUser } from '../../store/users';
+import SavePin from "../Pins/SavePin";
 
 const ImageListItem = ({image}) => {
     // console.log(image);
@@ -18,7 +19,7 @@ const ImageListItem = ({image}) => {
         <div className="imageListItem" key={image.id}>
             {/* <ul> */}
                 <div className="imagePic">
-                    <div ><Link className="overlay" to={`/pins/${image.id}`}/></div>
+                    <div ><Link className="overlay" to={`/pins/${image.id}`}><SavePin imageId={image.id}/></Link></div>
                     <Link to={`/pins/${image.id}`}><img className="imgIdx" src={image.photoUrl} alt="" /></Link>
                 </div>
                 <br/>
