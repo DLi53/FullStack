@@ -6,20 +6,25 @@ import { fetchImages, fetchImage } from '../../store/images';
 import './index.css'
 import DropDown from "../DropDown/dropdown";
 import { Link } from "react-router-dom";
+import { fetchUsers } from "../../store/users";
 
 const ImageShowPage = () => {
     const dispatch = useDispatch()
     let {id} = useParams()
-    id = Number(id)
+    console.log(id);
+    // id = Number(id)
 
-    const image = useSelector(state => state.images)
-    const imagedeets = image[id]
-    const userdeets = useSelector(state => state.users[imagedeets.uploaderId])
+    // const image = useSelector(state => state.images)
+    // const imagedeets = image[id]
+    const imagedeets = useSelector(state => state.images[id])
+    console.log(imagedeets);
+    const userdeets = useSelector(state => state.users[imagedeets && imagedeets.uploaderId])
     const currentUserId = useSelector(state => state.session.user.id)
 
     useEffect(() => {
-        dispatch(fetchImage(id))
-    },[id])
+        dispatch(fetchImages())
+        dispatch(fetchUsers())
+    },[])
 
     const editPage = <Link className="updateItem" to={`/pins/${id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Link>
 

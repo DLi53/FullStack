@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchUser } from '../../store/users';
 
-const ImageListItem = ({image, user}) => {
+const ImageListItem = ({image}) => {
     // console.log(image);
     // const dispatch = useDispatch()
     // const users = useSelector(state => Object.values(state.users))

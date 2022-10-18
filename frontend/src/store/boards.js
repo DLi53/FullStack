@@ -43,14 +43,15 @@ const addBoard = boardData => {
     }
 }
 export const createBoard = (boardData) => async dispatch => {
-    const res = await fetch(`api/boards`, {
+console.log(boardData.currentUserId);
+    const res = await csrfFetch(`/api/users/${boardData.currentUserId}/boards`, {
         method: 'POST',
         body: JSON.stringify(boardData),
         headers: {
             'Content-Type': 'application/json'
         }
     })
-
+    console.log(res);
     const data = await res.json();
     dispatch(addBoard(data))
 }
@@ -68,7 +69,7 @@ const updateBoard = boardData => {
 }
 
 export const editBoard = (boardData) => async dispatch => {
-    const res = await csrfFetch(`api/boards/${boardData.id}`, {
+    const res = await csrfFetch(`/api/boards/${boardData.id}`, {
         method: 'PATCH',
         body: JSON.stringify(boardData),
         headers:{
@@ -93,7 +94,7 @@ const removeBoard = boardId => {
 }
 
 export const deleteBoard = (boardId) => async dispatch => {
-    const res = await fetch(`api/boards/${boardId}`, {
+    const res = await fetch(`/api/boards/${boardId}`, {
         method: 'DELETE'
     })
     dispatch(removeBoard(boardId))

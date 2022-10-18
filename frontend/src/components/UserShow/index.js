@@ -7,6 +7,7 @@ import ImageListItem from "../ImageIndexPage/ImageListItem";
 import Masonry from "react-masonry-css";
 import { Link } from "react-router-dom";
 import BoardList from "../Boards/boardList";
+import { fetchUsers } from "../../store/users";
 
 const UserShow = ({message}) => {
     // console.log(message);
@@ -14,7 +15,7 @@ const UserShow = ({message}) => {
     const {id} = useParams()
     const userdeets = useSelector(state => state.users[id])
     const boarddeets = useSelector(state => state.boards[id])
-    const [createShow, setCreateShow] = useState("Create")
+    const [createShow, setCreateShow] = useState("Show")
     const userImages = useSelector(state => {
         let arr = []   
         Object.values(state.images).forEach(image => {
@@ -30,6 +31,9 @@ const UserShow = ({message}) => {
     const createIt = createShow === "Create" ? pinCreateLink : boardCreateLink
 
 
+    useEffect(() => {
+        dispatch(fetchUsers())
+    },[])
 
     const breakpointColumnsObj = {
         default: 7,
@@ -59,9 +63,9 @@ const UserShow = ({message}) => {
 
         <div className="userShow">
             {message && message}
-            <img className="userShowPic" src={userdeets.profilePicUrl} alt="" />
-            <h1>{userdeets.username}</h1>
-            <p>@{userdeets.username}</p>
+            <img className="userShowPic" src={userdeets && userdeets.profilePicUrl} alt="" />
+            <h1>{userdeets && userdeets.username}</h1>
+            <p>@{userdeets && userdeets.username}</p>
             <br />
 
             <div className="createshow">

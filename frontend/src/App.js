@@ -11,6 +11,9 @@ import { fetchUsers } from "./store/users";
 import UserShow from "./components/UserShow";
 import ImageEditPage from "./components/ImageEditPage";
 import BoardCreate from "./components/Boards/boardCreate";
+import { fetchBoards } from "./store/boards";
+import { fetchPins } from "./store/pins";
+import BoardShow from "./components/Boards/boardShow";
 
 
 
@@ -21,6 +24,8 @@ function App() {
     useEffect(() => {
         dispatch(fetchImages())
         dispatch(fetchUsers())
+        dispatch(fetchBoards())
+        dispatch(fetchPins())
     },[])
 
   return (
@@ -44,6 +49,9 @@ function App() {
         </Route>
         <Route path="/pin-builder">
           <ImageCreatePage/>
+        </Route>
+        <Route path="/board/:boardId">
+          <BoardShow/>
         </Route>
         <Route path="/board-builder">
           <BoardCreate/>
