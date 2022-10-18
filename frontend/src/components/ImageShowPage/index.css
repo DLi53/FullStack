@@ -60,18 +60,6 @@
     font-size: 20px;
 }
 
-.saveShow {
-    color: white;
-    background-color: red;
-    font-size: 20px;
-    border: none;
-    padding: 3%;
-    margin-top: 2%;
-    margin-left: 3%;
-    border-radius: 25px;
-    cursor: pointer;
-}
-
 .imageTitle {
     font-size: 40px;
 }
@@ -104,7 +92,7 @@
     margin-top: 2%;
     margin-left: 3%;
     border-radius: 25px;
-    cursor: pointer;
+    cursor: wait;
 }
 
 .commentsShow {
@@ -114,4 +102,10 @@
 .updateItem {
     margin-top: 10px;
     margin-right: 50px;
+}
+
+.inputComment {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }

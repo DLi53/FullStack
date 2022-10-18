@@ -68,7 +68,14 @@ const ImageShowPage = () => {
                             </div>
 
                             <div className="commentsShow">
-                                COMMENTS ?
+                                <h3>Comments: </h3>
+                                <p>Omg so Beautiful!!</p>
+                                <p>Wowowowowow</p>
+                                <br />
+                                <div className="inputComment">
+                                    <img className="profileIcon" src={userdeets && userdeets.profilePicUrl} alt="" />
+                                    <input type="text" className="descriptionInput" placeholder="Your comment here - Future Feature"/>
+                                </div>
                             </div>
                         </div>
                         </div>

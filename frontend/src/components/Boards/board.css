@@ -1,3 +1,10 @@
+.BoardList {
+    display: flex;
+    justify-content: space-around;
+    width: 1000px;
+    margin: auto
+}
+
 .boardCoverPic {
     width: 100px;
     height: 100px;
