@@ -36,7 +36,7 @@ const NavBar = () => {
 
 
     const loggedOutNav = (
-        <div className = "navBar"> 
+        <div className = "navBar" id='loggedOutNav'> 
             <div className='navLogo'>
                 <div><a href=""><img className="logo" src={logo} /></a></div>
                 <div><a href=""><img className="logo2" src={logo2} /></a></div>
@@ -51,7 +51,7 @@ const NavBar = () => {
 
     )
     const loggedInNav = ( 
-        <div className="navBar">
+        <div className="navBar" id='loggedInNav'>
                 {/* <div><a href=""><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png?20160129083321" alt="" /></a></div> */}
                 <div><Link to="/"><img className="logo" src={logo} /></Link></div>
 

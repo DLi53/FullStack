@@ -47,7 +47,7 @@ const SavePin = ({imageId}) => {
     const handleSubmit = () => {
    
         console.log(boardSelected);
-        debugger
+
 
         dispatch(createPin({image_id: imageId, board_id: boardSelected}))
         // dispatch(fetchPins())
