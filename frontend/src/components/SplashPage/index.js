@@ -42,7 +42,7 @@ const SplashPage = () => {
             </section>
 
             <section className="pg4">
-                <img className="pg4img"  />
+                <div className="pg4img"  />
 
                 <h1>Sign Up Here!</h1>
                 <h2><SignUpForm></SignUpForm></h2>
