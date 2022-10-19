@@ -44,7 +44,7 @@ const SplashPage = () => {
             <section className="pg4">
                 <img src="https://imageio.forbes.com/blogs-images/trevornace/files/2015/11/beautiful-places-world-1200x900.jpg?format=jpg&width=1200" alt="" />
 
-                <h1>Sign up Here!!</h1>
+                <h1>Sign up Here!</h1>
                 <h2><SignUpForm></SignUpForm></h2>
             </section>
 
