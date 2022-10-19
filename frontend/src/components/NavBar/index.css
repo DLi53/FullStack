@@ -26,12 +26,14 @@ a {
 }
 
 .logo {
-    height: 35px;
-    width: 35px
+    height: 40px;
+    width: 40px;
+    /* padding-bottom: 5px; */
 }
 .logo2 {
     height: 35px;
-    width: 150px
+    width: 120px;
+    padding-top: 3px
 }
 
 .frontNav {

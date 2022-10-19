@@ -63,7 +63,7 @@ section {
     background-color:rgba(151, 179, 234, 0.466);
     display: flex;
     /* justify-content: space-evenly; */
-    padding-inline: 10vh;
+    /* padding-inline: 10vh; */
     /* margin-bottom: 50%; */
 
     height: 100%;
@@ -175,3 +175,7 @@ section > h1 {
             background-position: 200% center;
         }
     }
+
+.pg3div{
+    margin-bottom: 30%;
+}

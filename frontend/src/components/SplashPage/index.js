@@ -35,7 +35,7 @@ const SplashPage = () => {
             <section className="pg3">
                 <img src="https://images.asiahighlights.com/allpicture/2018/03/b308a1bf551e489b8b89d7d2_cut_600x800_61.jpg" alt="" />
                 <br />
-                <div>
+                <div className="pg3div">
                     <h1 className="pg3h1">Save ideas you like</h1>
                     <p>Collect your favorites so you can get back to them...</p>
                 </div>
