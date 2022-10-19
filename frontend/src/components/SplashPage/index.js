@@ -27,9 +27,9 @@ const SplashPage = () => {
             <section className="pg2">
                 <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/scenic-sunrise-above-bagan-in-myanmar-royalty-free-image-1658261755.jpg" alt="" />
                 
-                <h1 >Search for an idea</h1>
+                <h1 className="pg2h1">Search for an idea</h1>
                 <br />
-                <p>Winner, winner, Chicken Dinner?</p>
+                {/* <p>Winner, winner, Chicken Dinner?</p> */}
             </section>
 
             <section className="pg3">
@@ -37,7 +37,7 @@ const SplashPage = () => {
                 <br />
                 <div>
                     <h1 className="pg3h1">Save ideas you like</h1>
-                    <p>Collect your favorites so you can get back to them</p>
+                    <p>Collect your favorites so you can get back to them...</p>
                 </div>
             </section>
 

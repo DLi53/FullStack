@@ -57,7 +57,7 @@ const UserShow = ({message}) => {
 
 
 
-    const shown = createShow === "Show" ? <BoardList userId={userdeets.id}/> :  imageListItems
+    const shown = createShow === "Show" ? <BoardList userId={userdeets && userdeets.id}/> :  imageListItems
 
     return ( 
 
