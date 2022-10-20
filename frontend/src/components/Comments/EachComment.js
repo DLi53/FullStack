@@ -17,16 +17,20 @@ const EachComment = ({comment}) => {
         })
         return arr[0]
     })
+    const currentUserId = useSelector(state => state.session.user.id)
 
+    const handleDelete = () => {
+        dispatch(deleteComment(comment.id))
+    }
+
+    const trashcan = currentUserId && commentUser && currentUserId === commentUser.id ? <div className="commentDelete" onClick={handleDelete}><i className="fa-sharp fa-solid fa-trash"></i></div> : ''
 
     useEffect(() => {
         dispatch(fetchUsers())
     },[])
 
 
-    const handleDelete = () => {
-        dispatch(deleteComment(comment.id))
-    }
+
 
     return ( 
         <div className="eachComment">
@@ -37,7 +41,7 @@ const EachComment = ({comment}) => {
             </div>
             <div className="dateComment">
                 <div className="commentDate">{comment.createdAt.slice(5,10)}</div>
-                <div className="commentDelete" onClick={handleDelete}><i className="fa-sharp fa-solid fa-trash"></i></div>
+                {trashcan}
             </div>
         </div>
      );
