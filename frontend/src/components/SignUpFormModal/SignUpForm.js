@@ -4,19 +4,21 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./SignUpForm.css";
+import Loading from "../Loading/Loading";
 
 function SignUpForm() {
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [loading, setLoading] = useState(false)
 
 
   const demoSignIn = () => {
     setUsername("DemoUser")
     setPassword("Password1")
     const user = {username: 'DemoUser', password: 'Password1'}
-
+    setLoading(true)
     return dispatch(sessionActions.login(user))
   }
 
@@ -24,7 +26,7 @@ function SignUpForm() {
     e.preventDefault();
     setErrors([]);
 
-
+    setLoading(true)
     dispatch(sessionActions.signup({ username, password }))
       .catch(async (res) => {
         let data;
@@ -85,6 +87,8 @@ function SignUpForm() {
       <br />
 
       <button className="modalButtonDemo" onClick={demoSignIn}>Sign In with Demo User</button>
+      {loading ? <Loading/> : ''}
+
     </div>
   );
 }

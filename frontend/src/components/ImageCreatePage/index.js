@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import csrfFetch from '../../store/csrf';
 import { fetchImages } from '../../store/images';
+import Loading from '../Loading/Loading';
 
 import './index.css' 
 
@@ -19,6 +20,7 @@ const ImageCreatePage = () => {
     const [description, setDescription] = useState('')
     const [uploaded, setUploaded] = useState('')
     const [redirect, setRedirect] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     
 
@@ -36,6 +38,8 @@ const ImageCreatePage = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
+        setLoading(true)
+
         const formData = new FormData();
         formData.append('image[title]', title);
         formData.append('image[description]', description);
@@ -112,6 +116,8 @@ const ImageCreatePage = () => {
                             </input>
                             <br />
                             <br />
+                            {loading ? <Loading/> : ''}
+
                             {uploaded}
                         </div>
                     </div>

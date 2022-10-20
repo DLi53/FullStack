@@ -8,6 +8,8 @@ import Masonry from "react-masonry-css";
 import { Link } from "react-router-dom";
 import BoardList from "../Boards/boardList";
 import { fetchUsers } from "../../store/users";
+import Loading from "../Loading/Loading";
+import { fetchImages } from "../../store/images";
 
 const UserShow = ({message}) => {
     // console.log(message);
@@ -16,6 +18,8 @@ const UserShow = ({message}) => {
     const userdeets = useSelector(state => state.users[id])
     const boarddeets = useSelector(state => state.boards[id])
     const [createShow, setCreateShow] = useState("Show")
+    const [loading, setLoading] = useState(true)
+
     const userImages = useSelector(state => {
         let arr = []   
         Object.values(state.images).forEach(image => {
@@ -32,7 +36,10 @@ const UserShow = ({message}) => {
 
 
     useEffect(() => {
+
         dispatch(fetchUsers())
+        dispatch(fetchImages())
+        .finally(() => {setLoading(false)})
     },[])
 
     const breakpointColumnsObj = {
@@ -59,7 +66,7 @@ const UserShow = ({message}) => {
 
     const shown = createShow === "Show" ? <BoardList userId={userdeets && userdeets.id}/> :  imageListItems
 
-    return ( 
+    return loading ? <Loading/> : ( 
 
         <div className="userShow">
             {message && message}

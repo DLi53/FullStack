@@ -4,24 +4,28 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./LoginForm.css";
+import Loading from "../Loading/Loading";
 
 function LoginForm() {
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [loading, setLoading] = useState(false)
 
   const demoSignIn = () => {
     setUsername("DemoUser")
     setPassword("Password1")
     const user = {username: 'DemoUser', password: 'Password1'}
-
+    setLoading(true)
     return dispatch(sessionActions.login(user))
+
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
+    setLoading(true)
     return dispatch(sessionActions.login({ username, password }))
       .catch(async (res) => {
         let data;
@@ -73,7 +77,7 @@ function LoginForm() {
       <div className="or">or</div>
       <br />
       <button className="modalButtonDemo" onClick={demoSignIn}>Sign In with Demo User</button>
-
+      {loading ? <Loading/> : ''}
     </form>
   );
 }

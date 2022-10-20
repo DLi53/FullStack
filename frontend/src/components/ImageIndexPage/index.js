@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchImages } from '../../store/images';
 import ImageListItem from './ImageListItem';
@@ -6,17 +6,21 @@ import './index.css'
 import SplashPage from '../SplashPage';
 import Masonry from 'react-masonry-css'
 import { fetchUsers } from '../../store/users';
+import Loading from '../Loading/Loading';
 
 const ImageIndexPage = () => {
     const dispatch = useDispatch()
     const sessionUser = useSelector((state) => state.session.user);
     const images = useSelector(state => Object.values(state.images));
     const users = useSelector(state => (state.users));
+    const [loading, setLoading] = useState(true)
+
     // console.log(users);
     // const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(fetchImages())
+        .finally(() => {setLoading(false)})
         // dispatch(fetchUsers())
     },[])
 
@@ -34,7 +38,7 @@ const ImageIndexPage = () => {
 
 
 
-    const index =( 
+    const index = loading ? <Loading/> : ( 
         <div className="imageIndexPage">
             <ul className="imagesList" >
                 {/* <img className='deleteThis' src="https://imstresst-dev.s3.amazonaws.com/Screen+Shot+2022-10-12+at+9.25.24+AM.png" alt="" /> */}

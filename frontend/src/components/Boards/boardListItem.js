@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPins } from "../../store/pins";
 import './board.css'
 import { Link } from "react-router-dom";
+import { fetchImage, fetchImages } from "../../store/images";
+import Loading from "../Loading/Loading";
 
 const BoardListItem = ({board}) => {
     const dispatch = useDispatch()
@@ -49,6 +51,7 @@ const BoardListItem = ({board}) => {
 
     useEffect(() => {
         dispatch(fetchPins())
+
     }, [])
 
     return ( 
