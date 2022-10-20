@@ -3,8 +3,9 @@ import './Loading.css'
 const Loading = () => {
     return ( 
         <div className="loading">
-            Loading...
-            <div className="lds-loader"><div></div><div></div><div></div></div>
+            <div className="Loadings">Loading</div> 
+            {/* <div className="lds-loader"><div></div><div></div><div></div></div> */}
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
         </div>
      );
 }
