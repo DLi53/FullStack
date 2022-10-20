@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     resources :pins
     resources :follows
     resources :images
+    resources :comments
     resource :session, only: [:create, :destroy, :show]
+
   end
 
 

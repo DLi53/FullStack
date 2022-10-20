@@ -37,8 +37,9 @@ class Api::ImagesController < ApplicationController
     end
 
     def destroy
-        @image = image.find(params[:id])
-        p @image
+        @image = Image.find(params[:id])
+        debugger
+
         if @image && @image.destroy
             render json: ["Pin is Gone"]
         else
@@ -49,6 +50,7 @@ class Api::ImagesController < ApplicationController
 
     private
     def image_params
+        debugger
         params.require(:image).permit(:title, :description, :uploader_id, :photo)
     end
     

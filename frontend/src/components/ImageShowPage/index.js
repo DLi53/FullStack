@@ -8,6 +8,7 @@ import DropDown from "../DropDown/dropdown";
 import { Link } from "react-router-dom";
 import { fetchUsers } from "../../store/users";
 import SavePin from "../Pins/SavePin";
+import Comments from '../Comments'
 
 const ImageShowPage = () => {
     const dispatch = useDispatch()
@@ -24,7 +25,7 @@ const ImageShowPage = () => {
 
     useEffect(() => {
         dispatch(fetchImage(id))
-        dispatch(fetchUsers())
+        // dispatch(fetchUsers())
     },[id])
 
     const editPage = <Link className="updateItem" to={`/pins/${id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Link>
@@ -65,18 +66,13 @@ const ImageShowPage = () => {
                                 <div className="userdeetsright">
                                     <button className="followShow">Follow</button>
                                 </div>
+
+                            </div>
+                            <div className="commentsShow">
+                                <Comments></Comments>
                             </div>
 
-                            <div className="commentsShow">
-                                <h3>Comments: </h3>
-                                <p>Omg so Beautiful!!</p>
-                                <p>Wowowowowow</p>
-                                <br />
-                                <div className="inputComment">
-                                    <img className="profileIcon" src={userdeets && userdeets.profilePicUrl} alt="" />
-                                    <input type="text" className="descriptionInput" placeholder="Your comment here - Future Feature"/>
-                                </div>
-                            </div>
+                            
                         </div>
                         </div>
                     {/* </div> */}

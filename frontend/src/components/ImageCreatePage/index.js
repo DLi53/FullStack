@@ -14,7 +14,7 @@ const ImageCreatePage = () => {
     const sessionUser = useSelector((state) => state.session.user)
     const user = useSelector((state) => state.users[sessionUser.id])
 
-    const [uploaderId, setUploaderId] = useState(user.id)
+    const [uploaderId, setUploaderId] = useState(user && user.id)
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [uploaded, setUploaded] = useState('')
@@ -68,7 +68,7 @@ const ImageCreatePage = () => {
     )}
 
 
-    return ( 
+    if(user) {return ( 
         <div className="imageCreatePage">
             <div className="imageCreateBox">
                 <form onSubmit={handleSubmit}>
@@ -121,6 +121,6 @@ const ImageCreatePage = () => {
             </div>
         </div>
      );
-}
+}}
  
 export default ImageCreatePage;

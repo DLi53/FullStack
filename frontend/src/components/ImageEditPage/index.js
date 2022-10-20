@@ -14,8 +14,8 @@ const ImageEditPage = () => {
     id = Number(id)
 
     const image = useSelector(state => state.images)
-    const imagedeets = image[id]
-    const userdeets = useSelector(state => state.users[imagedeets.uploaderId])
+    const imagedeets = (image && image[id])
+    // const userdeets = useSelector(state => state.users[imagedeets.uploaderId])
     const currentUserId = useSelector(state => state.session.user.id)
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
@@ -66,11 +66,11 @@ const ImageEditPage = () => {
     )}
 
 
-    return ( 
+    if(image) {return ( 
        <div className="imageShowPage">
             <div className="imageShowBox">
                 <div className="leftSideShow" >
-                        <img className="pictureUpload" src={imagedeets.photoUrl} alt="" />
+                        <img className="pictureUpload" src={imagedeets && imagedeets.photoUrl} alt="" />
                 </div>
 
                 <div className="rightSideShow">
@@ -104,6 +104,6 @@ const ImageEditPage = () => {
             </div>
         </div>
      );
-    }
+    }}
 
 export default ImageEditPage;

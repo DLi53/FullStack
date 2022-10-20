@@ -93,11 +93,10 @@ const removeImage = imageId => {
 }
 
 export const deleteImage = (imageId) => async dispatch => {
-    const res = await fetch(`/api/images/${imageId}`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        }
+
+
+    const res = await csrfFetch(`/api/images/${imageId}`, {
+        method: 'DELETE'
     })
     dispatch(removeImage(imageId))
 }

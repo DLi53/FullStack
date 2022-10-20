@@ -30,7 +30,7 @@ const ImageIndexPage = () => {
         500: 1
     };
 
-    const imageListItems = images.map(image => {return <ImageListItem image={image} key={image.id} user={users[image.uploaderId]}/>})
+    const imageListItems = (images && images.map(image => {return <ImageListItem image={image} key={image.id} user={users[image.uploaderId]}/>}))
 
 
 

@@ -5,6 +5,7 @@ import imagesReducer from "./images";
 import usersReducer from "./users";
 import boardsReducer from "./boards";
 import pinsReducer from "./pins";
+import commentsReducer from "./comments";
 
 
 const rootReducer = combineReducers({ 
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   users: usersReducer,
   images: imagesReducer,
   boards: boardsReducer,
-  pins: pinsReducer
+  pins: pinsReducer,
+  comments: commentsReducer
  });
 
 let enhancer;

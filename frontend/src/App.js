@@ -19,14 +19,14 @@ import BoardShow from "./components/Boards/boardShow";
 
 function App() {
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(fetchImages())
-        dispatch(fetchUsers())
-        dispatch(fetchBoards())
-        dispatch(fetchPins())
-    },[])
+    // useEffect(() => {
+    //     dispatch(fetchImages())
+    //     dispatch(fetchUsers())
+    //     dispatch(fetchBoards())
+    //     dispatch(fetchPins())
+    // },[])
 
   return (
     <>
