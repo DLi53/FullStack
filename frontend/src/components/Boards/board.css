@@ -1,8 +1,14 @@
 .BoardList {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
-    width: 1000px;
+    /* height: 1000px; */
+    width: 100%;
     margin: auto
+}
+
+.BoardListItem {
+    margin-inline: 100px
 }
 
 .boardCoverPic {

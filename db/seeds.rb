@@ -14,11 +14,8 @@ Comment.destroy_all
 Follow.destroy_all
 
 userDemo = User.create!({username: "DemoUser", password: "Password1"})
-user1 = User.create!({username: "DemoUser2", password: "Password1"})
-user2 = User.create!({username: "Daniel", password: "Password1"})
-user3 = User.create!({username: "Vivian", password: "Password1"})
-user4 = User.create!({username: "Matthew", password: "Password1"})
-user5 = User.create!({username: "Victor", password: "Password1"})
+userDaniel = User.create!({username: "Daniel", password: "Password1"})
+userVivian = User.create!({username: "Vivian", password: "Password1"})
 
 userPooh = User.create!({username: "Pooh", password: "Password1"})
 profilepic_1 = URI.open("https://imstresst-dev.s3.amazonaws.com/Profile+Pics/profilepic1.jpg")
@@ -71,15 +68,6 @@ userBee.profilepic.attach(io: profilepic_10, filename:"profilepic10")
 userBee.save!
 
 
-
-
-boardDemo = Board.create!({title: 'testDemo', user_id: userDemo.id})
-board1 = Board.create!({title: 'test1', user_id: user1.id})
-board11 = Board.create!({title: 'test11', user_id: user1.id})
-board2 = Board.create!({title: 'test2', user_id: user2.id})
-board22 = Board.create!({title: 'test22', user_id: user2.id})
-board3 = Board.create!({title: 'test3', user_id: user3.id})
-board33 = Board.create!({title: 'test33', user_id: user3.id})
 
 # B Destinations ---------------
 
@@ -408,14 +396,191 @@ image_w15.save!
 # image9 = Image.create!({title: 'image9', description: 'imageDesc', uploader_id: user4.id})
 # image10 = Image.create!({title: 'image10', description: 'imageDesc', uploader_id: user5.id})
 
-pin1 = Pin.create!({image_id: image_w1.id, board_id: board1.id})
-pin2 = Pin.create!({image_id: image_w1.id, board_id: board2.id})
-pin3 = Pin.create!({image_id: image_w2.id, board_id: board1.id})
 
-comment1 = Comment.create!({description: 'woaw', commenter_id: user1.id, image_id: image_w1.id})
-comment2 = Comment.create!({description: 'woaw2', commenter_id: user2.id, image_id: image_w1.id})
+boardDemo1 = Board.create!({title: 'Demo1', user_id: userDemo.id})
+boardDemo2 = Board.create!({title: 'Demo2', user_id: userDemo.id})
+boardDemo3 = Board.create!({title: 'Demo3', user_id: userDemo.id})
 
-follow1 = Follow.create!({follower_id: user1.id, followee_id: user2.id})
-follow2 = Follow.create!({follower_id: user2.id, followee_id: user1.id})
+boardPooh1 = Board.create!({title: 'BoardPooh1', user_id: userPooh.id})
+boardPooh2 = Board.create!({title: 'BoardPooh2', user_id: userPooh.id})
+boardPooh3 = Board.create!({title: 'BoardPooh3', user_id: userPooh.id})
 
+boardPiglet1 = Board.create!({title: 'BoardPiglet1', user_id: userPiglet.id})
+boardPiglet2 = Board.create!({title: 'BoardPiglet2', user_id: userPiglet.id})
+boardPiglet3 = Board.create!({title: 'BoardPiglet3', user_id: userPiglet.id})
+
+boardTigger1 = Board.create!({title: 'BoardTigger1', user_id: userTigger.id})
+boardTigger2 = Board.create!({title: 'BoardTigger2', user_id: userTigger.id})
+boardTigger3 = Board.create!({title: 'BoardTigger3', user_id: userTigger.id})
+
+boardOwl1 = Board.create!({title: 'BoardOwl1', user_id: userOwl.id})
+boardOwl2 = Board.create!({title: 'BoardOwl2', user_id: userOwl.id})
+boardOwl3 = Board.create!({title: 'BoardOwl3', user_id: userOwl.id})
+
+boardRabbit1 = Board.create!({title: 'BoardRabbit1', user_id: userRabbit.id})
+boardRabbit2 = Board.create!({title: 'BoardRabbit2', user_id: userRabbit.id})
+boardRabbit3 = Board.create!({title: 'BoardRabbit3', user_id: userRabbit.id})
+
+boardEeyore1 = Board.create!({title: 'BoardEeyore1', user_id: userEeyore.id})
+boardEeyore2 = Board.create!({title: 'BoardEeyore2', user_id: userEeyore.id})
+boardEeyore3 = Board.create!({title: 'BoardEeyore3', user_id: userEeyore.id})
+
+boardDaniel1 = Board.create!({title: 'BoardDaniel1', user_id: userDaniel.id})
+boardDaniel2 = Board.create!({title: 'BoardDaniel2', user_id: userDaniel.id})
+boardDaniel3 = Board.create!({title: 'BoardDaniel3', user_id: userDaniel.id})
+
+boardVivian1 = Board.create!({title: 'BoardVivian1', user_id: userVivian.id})
+boardVivian2 = Board.create!({title: 'BoardVivian2', user_id: userVivian.id})
+boardVivian3 = Board.create!({title: 'BoardVivian3', user_id: userVivian.id})
+
+
+pinDemo1 = Pin.create!({image_id: image_b1.id, board_id: boardDemo1.id})
+pinDemo2 = Pin.create!({image_id: image_b2.id, board_id: boardDemo1.id})
+pinDemo3 = Pin.create!({image_id: image_b3.id, board_id: boardDemo1.id})
+pinDemo4 = Pin.create!({image_id: image_p4.id, board_id: boardDemo2.id})
+pinDemo5 = Pin.create!({image_id: image_p5.id, board_id: boardDemo2.id})
+pinDemo6 = Pin.create!({image_id: image_p6.id, board_id: boardDemo2.id})
+pinDemo7 = Pin.create!({image_id: image_r7.id, board_id: boardDemo3.id})
+pinDemo8 = Pin.create!({image_id: image_r8.id, board_id: boardDemo3.id})
+pinDemo9 = Pin.create!({image_id: image_r9.id, board_id: boardDemo3.id})
+
+pinDaniel1 = Pin.create!({image_id: image_b1.id, board_id: boardDaniel1.id})
+pinDaniel2 = Pin.create!({image_id: image_b2.id, board_id: boardDaniel1.id})
+pinDaniel3 = Pin.create!({image_id: image_b3.id, board_id: boardDaniel1.id})
+pinDaniel4 = Pin.create!({image_id: image_p4.id, board_id: boardDaniel2.id})
+pinDaniel5 = Pin.create!({image_id: image_p5.id, board_id: boardDaniel2.id})
+pinDaniel6 = Pin.create!({image_id: image_p6.id, board_id: boardDaniel2.id})
+pinDaniel7 = Pin.create!({image_id: image_r7.id, board_id: boardDaniel3.id})
+pinDaniel8 = Pin.create!({image_id: image_r8.id, board_id: boardDaniel3.id})
+pinDaniel9 = Pin.create!({image_id: image_r9.id, board_id: boardDaniel3.id})
+
+pinPooh1 = Pin.create!({image_id: image_b1.id, board_id: boardPooh1.id})
+pinPooh2 = Pin.create!({image_id: image_b2.id, board_id: boardPooh1.id})
+pinPooh3 = Pin.create!({image_id: image_b3.id, board_id: boardPooh1.id})
+pinPooh4 = Pin.create!({image_id: image_p4.id, board_id: boardPooh2.id})
+pinPooh5 = Pin.create!({image_id: image_p5.id, board_id: boardPooh2.id})
+pinPooh6 = Pin.create!({image_id: image_p6.id, board_id: boardPooh2.id})
+pinPooh7 = Pin.create!({image_id: image_r7.id, board_id: boardPooh3.id})
+pinPooh8 = Pin.create!({image_id: image_r8.id, board_id: boardPooh3.id})
+pinPooh9 = Pin.create!({image_id: image_r9.id, board_id: boardPooh3.id})
+
+pinPiglet1 = Pin.create!({image_id: image_b1.id, board_id: boardPiglet1.id})
+pinPiglet2 = Pin.create!({image_id: image_b2.id, board_id: boardPiglet1.id})
+pinPiglet3 = Pin.create!({image_id: image_b3.id, board_id: boardPiglet1.id})
+pinPiglet4 = Pin.create!({image_id: image_p4.id, board_id: boardPiglet2.id})
+pinPiglet5 = Pin.create!({image_id: image_p5.id, board_id: boardPiglet2.id})
+pinPiglet6 = Pin.create!({image_id: image_p6.id, board_id: boardPiglet2.id})
+pinPiglet7 = Pin.create!({image_id: image_r7.id, board_id: boardPiglet3.id})
+pinPiglet8 = Pin.create!({image_id: image_r8.id, board_id: boardPiglet3.id})
+pinPiglet9 = Pin.create!({image_id: image_r9.id, board_id: boardPiglet3.id})
+
+pinTigger1 = Pin.create!({image_id: image_b1.id, board_id: boardTigger1.id})
+pinTigger2 = Pin.create!({image_id: image_b2.id, board_id: boardTigger1.id})
+pinTigger3 = Pin.create!({image_id: image_b3.id, board_id: boardTigger1.id})
+pinTigger4 = Pin.create!({image_id: image_p4.id, board_id: boardTigger2.id})
+pinTigger5 = Pin.create!({image_id: image_p5.id, board_id: boardTigger2.id})
+pinTigger6 = Pin.create!({image_id: image_p6.id, board_id: boardTigger2.id})
+pinTigger7 = Pin.create!({image_id: image_r7.id, board_id: boardTigger3.id})
+pinTigger8 = Pin.create!({image_id: image_r8.id, board_id: boardTigger3.id})
+pinTigger9 = Pin.create!({image_id: image_r9.id, board_id: boardTigger3.id})
+
+pinEeyore1 = Pin.create!({image_id: image_b1.id, board_id: boardEeyore1.id})
+pinEeyore2 = Pin.create!({image_id: image_b2.id, board_id: boardEeyore1.id})
+pinEeyore3 = Pin.create!({image_id: image_b3.id, board_id: boardEeyore1.id})
+pinEeyore4 = Pin.create!({image_id: image_p4.id, board_id: boardEeyore2.id})
+pinEeyore5 = Pin.create!({image_id: image_p5.id, board_id: boardEeyore2.id})
+pinEeyore6 = Pin.create!({image_id: image_p6.id, board_id: boardEeyore2.id})
+pinEeyore7 = Pin.create!({image_id: image_r7.id, board_id: boardEeyore3.id})
+pinEeyore8 = Pin.create!({image_id: image_r8.id, board_id: boardEeyore3.id})
+pinEeyore9 = Pin.create!({image_id: image_r9.id, board_id: boardEeyore3.id})
+
+
+comment_b1 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_b1.id})
+comment_b2 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_b2.id})
+comment_b3 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_b3.id})
+comment_b4 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_b4.id})
+comment_b5 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_b5.id})
+
+comment_p1 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_p1.id})
+comment_p2 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_p2.id})
+comment_p3 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_p3.id})
+comment_p4 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_p4.id})
+comment_p5 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_p5.id})
+
+comment_r1 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_r1.id})
+comment_r2 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_r2.id})
+comment_r3 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_r3.id})
+comment_r4 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_r4.id})
+comment_r5 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_r5.id})
+
+comment_w1 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_w1.id})
+comment_w2 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_w2.id})
+comment_w3 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_w3.id})
+comment_w4 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_w4.id})
+comment_w5 = Comment.create!({description: 'My comment goes EVERYWHERE!! 😅', commenter_id: userDaniel.id, image_id: image_w5.id})
+
+
+comment_bp1 = Comment.create!({description: 'O-Omg! w-w-where i-i-is t-t-this?? s-s-so b-beautiful!', commenter_id: userPiglet.id, image_id: image_b1.id})
+comment_bp2 = Comment.create!({description: 'O-Omg! w-w-where i-i-is t-t-this?? s-s-so b-beautiful!', commenter_id: userPiglet.id, image_id: image_b2.id})
+comment_bp3 = Comment.create!({description: 'O-Omg! w-w-where i-i-is t-t-this?? s-s-so b-beautiful!', commenter_id: userPiglet.id, image_id: image_b3.id})
+comment_bp4 = Comment.create!({description: 'O-Omg! w-w-where i-i-is t-t-this?? s-s-so b-beautiful!', commenter_id: userPiglet.id, image_id: image_b4.id})
+comment_bp5 = Comment.create!({description: 'O-Omg! w-w-where i-i-is t-t-this?? s-s-so b-beautiful!', commenter_id: userPiglet.id, image_id: image_b5.id})
+
+comment_pb1 = Comment.create!({description: 'Oh gee! This would look great in my Tummy. I wish I had some honey!  🍯', commenter_id: userPooh.id, image_id: image_p1.id})
+comment_pb2 = Comment.create!({description: 'Oh gee! This would look great in my Tummy. I wish I had some honey!  🍯', commenter_id: userPooh.id, image_id: image_p2.id})
+comment_pb3 = Comment.create!({description: 'Oh gee! This would look great in my Tummy. I wish I had some honey!  🍯', commenter_id: userPooh.id, image_id: image_p3.id})
+comment_pb4 = Comment.create!({description: 'Oh gee! This would look great in my Tummy. I wish I had some honey!  🍯', commenter_id: userPooh.id, image_id: image_p4.id})
+comment_pb5 = Comment.create!({description: 'Oh gee! This would look great in my Tummy. I wish I had some honey!  🍯', commenter_id: userPooh.id, image_id: image_p5.id})
+
+comment_re1 = Comment.create!({description: 'zzzzzzZZZZ woooooooowwww', commenter_id: userEeyore.id, image_id: image_r1.id})
+comment_re2 = Comment.create!({description: 'zzzzzzZZZZ woooooooowwww', commenter_id: userEeyore.id, image_id: image_r2.id})
+comment_re3 = Comment.create!({description: 'zzzzzzZZZZ woooooooowwww', commenter_id: userEeyore.id, image_id: image_r3.id})
+comment_re4 = Comment.create!({description: 'zzzzzzZZZZ woooooooowwww', commenter_id: userEeyore.id, image_id: image_r4.id})
+comment_re5 = Comment.create!({description: 'zzzzzzZZZZ woooooooowwww', commenter_id: userEeyore.id, image_id: image_r5.id})
+
+comment_wt1 = Comment.create!({description: 'HOOHOOHOOHOO HEE HEE! I WOULD LOVE TO BOUNCE ON THESE WALLS', commenter_id: userTigger.id, image_id: image_w1.id})
+comment_wt2 = Comment.create!({description: 'HOOHOOHOOHOO HEE HEE! I WOULD LOVE TO BOUNCE ON THESE WALLS', commenter_id: userTigger.id, image_id: image_w2.id})
+comment_wt3 = Comment.create!({description: 'HOOHOOHOOHOO HEE HEE! I WOULD LOVE TO BOUNCE ON THESE WALLS', commenter_id: userTigger.id, image_id: image_w3.id})
+comment_wt4 = Comment.create!({description: 'HOOHOOHOOHOO HEE HEE! I WOULD LOVE TO BOUNCE ON THESE WALLS', commenter_id: userTigger.id, image_id: image_w4.id})
+comment_wt5 = Comment.create!({description: 'HOOHOOHOOHOO HEE HEE! I WOULD LOVE TO BOUNCE ON THESE WALLS', commenter_id: userTigger.id, image_id: image_w5.id})
+
+
+followDemo1 = Follow.create!({follower_id: userDemo.id, followee_id: userDaniel.id})
+followDemo2 = Follow.create!({follower_id: userDemo.id, followee_id: userPooh.id})
+followDemo3 = Follow.create!({follower_id: userDemo.id, followee_id: userPiglet.id})
+followDemo4 = Follow.create!({follower_id: userDemo.id, followee_id: userTigger.id})
+followDemo5 = Follow.create!({follower_id: userDemo.id, followee_id: userEeyore.id})
+
+followDaniel1 = Follow.create!({follower_id: userDaniel.id, followee_id: userDemo.id})
+followDaniel2 = Follow.create!({follower_id: userDaniel.id, followee_id: userPooh.id})
+followDaniel3 = Follow.create!({follower_id: userDaniel.id, followee_id: userPiglet.id})
+followDaniel4 = Follow.create!({follower_id: userDaniel.id, followee_id: userTigger.id})
+followDaniel5 = Follow.create!({follower_id: userDaniel.id, followee_id: userEeyore.id})
+followDaniel6 = Follow.create!({follower_id: userDaniel.id, followee_id: userVivian.id})
+followVivian1 = Follow.create!({follower_id: userVivian.id, followee_id: userDaniel.id})
+
+
+followPooh1 = Follow.create!({follower_id: userPooh.id, followee_id: userDemo.id})
+followPooh2 = Follow.create!({follower_id: userPooh.id, followee_id: userDaniel.id})
+followPooh3 = Follow.create!({follower_id: userPooh.id, followee_id: userPiglet.id})
+followPooh4 = Follow.create!({follower_id: userPooh.id, followee_id: userTigger.id})
+followPooh5 = Follow.create!({follower_id: userPooh.id, followee_id: userEeyore.id})
+
+followPiglet1 = Follow.create!({follower_id: userPiglet.id, followee_id: userDemo.id})
+followPiglet2 = Follow.create!({follower_id: userPiglet.id, followee_id: userDaniel.id})
+followPiglet3 = Follow.create!({follower_id: userPiglet.id, followee_id: userPooh.id})
+followPiglet4 = Follow.create!({follower_id: userPiglet.id, followee_id: userTigger.id})
+followPiglet5 = Follow.create!({follower_id: userPiglet.id, followee_id: userEeyore.id})
+
+followTigger1 = Follow.create!({follower_id: userTigger.id, followee_id: userDemo.id})
+followTigger2 = Follow.create!({follower_id: userTigger.id, followee_id: userDaniel.id})
+followTigger3 = Follow.create!({follower_id: userTigger.id, followee_id: userPooh.id})
+followTigger4 = Follow.create!({follower_id: userTigger.id, followee_id: userPiglet.id})
+followTigger5 = Follow.create!({follower_id: userTigger.id, followee_id: userEeyore.id})
+
+followEeyore1 = Follow.create!({follower_id: userEeyore.id, followee_id: userDemo.id})
+followEeyore2 = Follow.create!({follower_id: userEeyore.id, followee_id: userDaniel.id})
+followEeyore3 = Follow.create!({follower_id: userEeyore.id, followee_id: userPiglet.id})
+followEeyore4 = Follow.create!({follower_id: userEeyore.id, followee_id: userTigger.id})
+followEeyore5 = Follow.create!({follower_id: userEeyore.id, followee_id: userPooh.id})
 

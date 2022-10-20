@@ -20,7 +20,6 @@ const EachComment = ({comment}) => {
 
 
     useEffect(() => {
-
         dispatch(fetchUsers())
     },[])
 
