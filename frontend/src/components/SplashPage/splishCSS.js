@@ -15,7 +15,9 @@ const SplishCss = () => {
     return ( 
         <div >
             <video autoPlay muted loop id="myVideo" >
-                <source src={Video} type="video/mp4"/>
+                {/* <source src={Video} type="video/mp4"/> */}
+                <source src="https://imstresst-dev.s3.amazonaws.com/PinterestMov/PinterestCover.mov" type="video/mp4"/>
+
             </video>
         </div>
      );
