@@ -8,16 +8,17 @@ import Masonry from 'react-masonry-css'
 import { fetchUsers } from '../../store/users';
 
 const ImageIndexPage = () => {
+    const dispatch = useDispatch()
     const sessionUser = useSelector((state) => state.session.user);
     const images = useSelector(state => Object.values(state.images));
     const users = useSelector(state => (state.users));
     // console.log(users);
     // const dispatch = useDispatch()
 
-    // useEffect(() => {
-    //     dispatch(fetchImages())
-    //     dispatch(fetchUsers())
-    // },[])
+    useEffect(() => {
+        dispatch(fetchImages())
+        // dispatch(fetchUsers())
+    },[])
 
     const breakpointColumnsObj = {
         default: 7,

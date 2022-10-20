@@ -13,13 +13,20 @@ const SplashPage = () => {
 
     // setInterval(setCurrentRow(3) ,3000)
 
+    let pg2 = document.getElementsByClassName('splashPage')
+    const handleClick = () => {
+        // <LoginFormModal></LoginFormModal>
+        window.scrollTo({top: 1000,left: 0, behavior:'smooth'})
+        // pg2.scrollIntoView()
+    }
 
     return ( 
         <div className="splashPage" >
 
-            <section className="pg1">
+            <section className="pg1" >
                 {/* <img className="SPLISH" src={splash} alt="" /> */}
             {/* {currentRow} */}
+
             <SplishCss/>
 
             </section>

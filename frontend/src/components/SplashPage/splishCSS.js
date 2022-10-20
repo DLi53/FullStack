@@ -1,5 +1,6 @@
 import './splishCss.css'
 import Video from './PinterestCover.mov'
+import LoginFormModal from '../LoginFormModal'
 
 
 const SplishCss = () => {
@@ -11,6 +12,8 @@ const SplishCss = () => {
     // const playVideo = () => {
     //     video.play()
     // }
+
+
 
     return ( 
         <div >
