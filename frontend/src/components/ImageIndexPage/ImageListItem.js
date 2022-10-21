@@ -19,7 +19,9 @@ const ImageListItem = ({image}) => {
         <div className="imageListItem" key={image.id}>
             {/* <ul> */}
                 <div className="imagePic">
-                    <div ><Link className="overlay" to={`/pins/${image.id}`}><SavePin imageId={image.id}/></Link></div>
+                    <div ><Link className="overlay" to={`/pins/${image.id}`}></Link></div>
+                    {/* <div ><Link className="overlay" to={`/pins/${image.id}`}><SavePin imageId={image.id}/></Link></div> */}
+
                     <Link to={`/pins/${image.id}`}><img className="imgIdx" src={image.photoUrl} alt="" /></Link>
                 </div>
                 <br/>
