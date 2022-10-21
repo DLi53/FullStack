@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="300" height="300" src="./frontend/src/assets/images/wink-xxl.png">
+  <img width="300" height="100" src="./frontend/src/assets/images/MainLogo.png">
 </p>
 
 ## Overview
