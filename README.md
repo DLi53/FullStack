@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="300" height="100" src="https://github.com/DLi53/MyIntrest/blob/main/app/assets/images/MainLogo.png">
+  <img width="330" height="100" src="https://github.com/DLi53/MyIntrest/blob/main/app/assets/images/MainLogo.png">
 </p>
 
 ## Overview
