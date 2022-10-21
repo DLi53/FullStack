@@ -16,86 +16,123 @@
 * PostgreSQL
 * AWS S3
 * Heroku
+* Masonry Library
 
 ## Previews
 
 ### Splash Page
 
-![](https://github.com/DLi53/myintrest/blob/main/app/assets/images/splashpage.gif)
+![](https://github.com/DLi53/MyIntrest/blob/main/app/assets/images/SplashPage.gif)
+
+
+### Index Page
+
+![](https://github.com/DLi53/MyIntrest/blob/main/app/assets/images/IndexPage.gif)
 
 ### Images
 
-<!-- ![](https://github.com/deborahwei/pinteresting/blob/main/app/assets/images/pins.gif) -->
+![](https://github.com/DLi53/MyIntrest/blob/main/app/assets/images/ImageCRUD.gif)
+
+### Board
+
+![](https://github.com/DLi53/MyIntrest/blob/main/app/assets/images/BoardsPic.png)
 
 ### Comments
 
-<!-- ![](https://github.com/deborahwei/pinteresting/blob/main/app/assets/images/comment.gif) -->
+![](https://github.com/DLi53/MyIntrest/blob/main/app/assets/images/Comments.gif)
+
 
 ## Code Snippets 
 
-With the use of **useState** and passing the set state function to the children component I was able to create search bars and board selection dropdown. This process was necessary in order for search results to render according to the query entered by the user in the search bar or for the appropriate board name to display when the user clicked on that board. 
+Below is a code snippet of the Image Controller to Create, Read, Update, and Destroy and Image on the backend. These codes communicate with the database to activate their specific tasks
 
-```
-const updateCurrentSelection = (selection) => {
-    setCurrentSelection(selection);
-    setOpen(false);
-}
-
-// child component
-
-<div onClick={()=> updateCurrentSelection(board)}  // on click the current selection is updated
-className={`mini-board-preview-container ${show ? "" : "hide"}`}>
-    <div className='mini-board-cover'>
-        <MiniBoardCover pinId={board?.pins[0]}/>
-    </div>
-    <div className="mini-board-info">
-        <div className='mini-board-name'>
-            <h1>{abbreviate(board?.name ?? "Profile", MAX_NAME_CHAR)}</h1>
-        </div>
-        <div>
-            <SavePinButton boardId={board?.id} pinId={pin?.id}/>
-        </div>
-    </div>
-</div>
-
-```
-
-#users_controller.rb
-
-def find_by_username
-@user = User.find_by(username: params[:username])
-  render "api/users/show"
+```ruby
+def index
+    @images = Image.all
+    render :index
 end
 
-```
-There was also the use of **transactions** in my Ruby routes that were necessary because the pin creator was not on the Pin class itself but rather within a combinational joins table. So in order to ensure that every pin that was created had a creator a transaction was necessary, since the pin would not be able to be created without that association being created. 
+def show
+    @image = Image.find(params[:id])
+    render :show
+end
 
+def create
+    @image = Image.new(image_params)
 
-```
-# pin.rb
-
-def self.safe_create(pin_params, user_id)
-  pin = Pin.new(pin_params)
-
-  Pin.transaction do
-    if pin.save!
-        pins_user = PinsUser.new({
-            user_id: user_id,
-            pin_id: pin.id,
-            created_pin: true,
-            saved_pin: false
-        })
-        if pins_user.save!
-            return [pin, "success"]
-        else
-          return [pin, pins_user.errors.full_messages]
-        end
+    if @image.save
+        pin = Pin.create!({image_id: @image.id, board_id: current_user.boards.first.id})
+        render :show
     else
-      return [pin, pin.errors.full_messages]
+        render json: ["somethings wrong"]
     end
-  end
-
-  return [pin, "Bad params"]
 end
 
+def update
+    @image = Image.find(params[:id])
+    
+    if @image.update(image_params)
+        render :show
+    else
+        render json: @image.errors.full_messages
+    end
+end
+
+def destroy
+    @image = Image.find(params[:id])
+
+    if @image && @image.destroy
+        render json: ["Pin is Gone"]
+    else
+        render json: ["Pin dont exist"]
+    end
+end
 ```
+
+Below is a code snippet of the creation of comments form on the front end with react. With the use of react hooks like useDispatch, useSelector, useParams, and useState, it can grab different slices of state to display the current user icons, current photo ID, the values that the user inputs and dispatch it to the backend to create a new comment.
+
+```javascript
+const CreateComment = () => {
+    const dispatch = useDispatch()
+    const {id} = useParams()
+    const currentUserId = useSelector(state => state.session.user)
+    const [description, setDescription] = useState('')
+    const [refresh, setRefresh] = useState(false)
+
+    const handleSubmit =() => {
+        dispatch(createComment({
+            description: description,
+            image_id: id
+        }))
+        setRefresh(true)
+    }
+
+    useEffect(() => {
+        dispatch(fetchComments())
+    },[refresh])
+    
+    return ( 
+        <form className="createComment" onSubmit={handleSubmit}>
+            <img className="profileIconComment" 
+                src={currentUserId && currentUserId.profilePicUrl}/>
+            <input type="text" 
+                className="descriptionInput" 
+                value={description} 
+                placeholder="Your comment here" 
+                onChange = {(e) => setDescription(e.target.value)}/>
+            <input type="submit" value="Done"  className="doneComment"/>
+        </form>
+     );
+}
+ 
+export default CreateComment;
+```
+
+## Future Plans
+
+* Follows
+* Search Bar
+
+## Credits
+
+* Pinterest

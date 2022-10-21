@@ -4,7 +4,6 @@ class Api::ImagesController < ApplicationController
 
     def index
         @images = Image.all
-        # @images = image.where(user_id: params[:user_id])
         render :index
     end
 
@@ -18,7 +17,6 @@ class Api::ImagesController < ApplicationController
  
         if @image.save
             pin = Pin.create!({image_id: @image.id, board_id: current_user.boards.first.id})
-
             render :show
         else
             render json: ["somethings wrong"]
@@ -38,7 +36,6 @@ class Api::ImagesController < ApplicationController
 
     def destroy
         @image = Image.find(params[:id])
-
 
         if @image && @image.destroy
             render json: ["Pin is Gone"]
