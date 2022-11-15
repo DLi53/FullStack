@@ -1,21 +1,21 @@
-class Api::PinsController < ApplicationController
+class Api::FollowsController < ApplicationController
 
     # skip_before_action :verify_authenticity_token
 
     def index
-        @pins = Pin.all
-        # @pins = pin.where(user_id: params[:user_id])
+        @follows = Follow.all
+        # @follows = follow.where(user_id: params[:user_id])
         render :index
     end
 
     def show
-        @pin = Pin.find(params[:id])
+        @follow = Follow.find(params[:id])
         render :show
     end
 
     def create
-        @pin = Pin.new(pin_params)
-        if @pin.save
+        @follow = Follow.new(follow_params)
+        if @follow.save
 
 
             render :show
@@ -26,28 +26,28 @@ class Api::PinsController < ApplicationController
     end
 
     def update
-        @pin = Pin.find(params[:id])
+        @follow = Follow.find(params[:id])
         
-        if @pin.update(pin_params)
+        if @follow.update(follow_params)
             render :show
         else
-            render json: @pin.errors.full_messages
+            render json: @follow.errors.full_messages
         end
     end
 
     def destroy
-        @pin = pin.find(params[:id])
-        if @pin && @pin.destroy
-            render json: ["Pin is Gone"]
+        @follow = follow.find(params[:id])
+        if @follow && @follow.destroy
+            render json: ["Follow is Gone"]
         else
-            render json: ["Pin dont exist"]
+            render json: ["Follow dont exist"]
         end
     end
 
 
     private
-    def pin_params
-        params.require(:pin).permit(:image_id, :board_id)
+    def follow_params
+        params.require(:follow).permit(:follower_id, :followee_id)
     end
     
 end

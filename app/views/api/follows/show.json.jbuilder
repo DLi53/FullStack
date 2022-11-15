@@ -1,1 +1,1 @@
-json.extract! @pin, :pin_id, :board_id
+json.extract! @follow, :follower_id, :followee_id

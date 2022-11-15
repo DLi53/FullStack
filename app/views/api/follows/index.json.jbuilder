@@ -1,8 +1,8 @@
-@pins.each do |pin|
-    json.set! pin.id do
-        json.extract! pin, :image_id, :board_id
+@follows.each do |follow|
+    json.set! follow.id do
+        json.extract! follow, :follower_id, :followee_id
 
-        json.extract! pin.image.photo, :record
+
 
 
     end
