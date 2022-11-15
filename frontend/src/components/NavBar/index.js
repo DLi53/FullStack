@@ -8,12 +8,17 @@ import SearchBar from '../SearchBar/searchBar';
 import DropDown from '../DropDown/dropdown';
 import logo from '../../assets/images/wink-xxl.png'
 import logo2 from '../../assets/images/WinkText.png'
+import { useState } from 'react';
 
 
 const NavBar = () => {
 
     const sessionUser = useSelector((state) => state.session.user);
+    const [homeSelected, setHomeSelected] = useState(true)
+    // const [createSelected, setCreateSelected] = useState(false)
+
     let sessionLinks;
+
 
     if (sessionUser) {
         sessionLinks = (''
@@ -53,12 +58,12 @@ const NavBar = () => {
     const loggedInNav = ( 
         <div className="navBar" id='loggedInNav'>
                 {/* <div><a href=""><img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png?20160129083321" alt="" /></a></div> */}
-                <div><Link to="/"><img className="logo" src={logo} /></Link></div>
+                <div><Link to="/"><img  onClick={() => setHomeSelected(true)} className="logo" src={logo} /></Link></div>
 
 
             <div className="frontNav">
-                <div id='navLinkHome'><Link to="/" className='navLinkHome'>Home</Link></div>
-                <div className='navLink'><Link to="/pin-builder" className='navLinkCreate'>Create</Link></div>
+                <div id='navLinkHome'  onClick={() => setHomeSelected(true)}><Link to="/" className={ homeSelected ? 'navLinkSelected' : 'navLinkUnSelected'}>Home</Link></div>
+                <div className='navLink'><Link to="/pin-builder" onClick={() => setHomeSelected(false)} className={ homeSelected ? 'navLinkUnSelected' : 'navLinkSelected'}>Create</Link></div>
             </div>
             <div className='searchBar'><SearchBar></SearchBar></div>
 
@@ -66,7 +71,7 @@ const NavBar = () => {
                 <div className='icons'><a href="https://github.com/DLi53"><i className="fa-brands fa-github"></i></a></div>
                 <div className='icons'><a href="https://www.linkedin.com/in/danielli52/"><i className="fa-brands fa-linkedin-in"></i></a></div>
                 {/* <div className='icons'><a href=""><i className="fa-solid fa-user"></i></a></div> */}
-                <div className='icons'><Link to={`/user/${sessionUser && sessionUser.id}`}><i className="fa-solid fa-user"></i></Link></div>
+                <div className='icons' onClick={() => setHomeSelected(true)}><Link to={`/user/${sessionUser && sessionUser.id}`}><i className="fa-solid fa-user"></i></Link></div>
 
                 <div className='icon'><DropDown></DropDown></div>
             </div>

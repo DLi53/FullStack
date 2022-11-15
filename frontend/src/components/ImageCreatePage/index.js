@@ -13,7 +13,7 @@ const ImageCreatePage = () => {
     // const [imgData, setImgData] = useState(null);
     const [photoUrl, setPhotoUrl] = useState(null)
     const sessionUser = useSelector((state) => state.session.user)
-    const user = useSelector((state) => state.users[sessionUser.id])
+    const user = useSelector((state) => state.session.user.id)
 
     const [uploaderId, setUploaderId] = useState(user && user.id)
     const [title, setTitle] = useState('')

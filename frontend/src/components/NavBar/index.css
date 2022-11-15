@@ -47,17 +47,19 @@ a {
     
 }
 
-.navLinkCreate {
+.navLinkUnSelected {
     color: black;
 }
 
-.navLinkHome{
+.navLinkSelected{
     color: white;
     background-color: black;
     padding: 12px;
     padding-block: 15px;
     border-radius: 24px
 }
+
+
 
 .frontNav div {
     margin-inline: 3%;

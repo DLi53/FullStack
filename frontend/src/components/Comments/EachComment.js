@@ -24,6 +24,8 @@ const EachComment = ({comment}) => {
     }
 
     const trashcan = currentUserId && commentUser && currentUserId === commentUser.id ? <div className="commentDelete" onClick={handleDelete}><i className="fa-sharp fa-solid fa-trash"></i></div> : ''
+    // const trashcan = <div className="commentDelete" onClick={handleDelete}><i className="fa-sharp fa-solid fa-trash"></i></div> 
+
 
     useEffect(() => {
         dispatch(fetchUsers())

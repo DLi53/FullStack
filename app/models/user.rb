@@ -44,11 +44,11 @@ class User < ApplicationRecord
     
   has_many :followers,
     through: :followers_connect,
-    source: :fallower
+    source: :follower
     
   has_many :following,
     through: :following_connect,
-    source: :followee_id
+    source: :followee
 
   has_one_attached :profilepic
 

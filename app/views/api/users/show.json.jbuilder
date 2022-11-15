@@ -1,5 +1,5 @@
 json.user do
-    json.extract! @user, :id, :username
+    json.extract! @user, :id, :username, :followers, :following
     # json.profilePicUrl @user.profilepic.url
     
     if @user.profilepic.attached?
