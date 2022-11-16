@@ -10,15 +10,25 @@ import BoardList from "../Boards/boardList";
 import { fetchUsers } from "../../store/users";
 import Loading from "../Loading/Loading";
 import { fetchImages } from "../../store/images";
+import { Modal } from '../Modal/modal.jsx';
+import LoginForm from "../LoginFormModal/LoginForm";
+import FollowerModal from "./FollowerModal";
+import FollowingModal from "./FollowingModal";
+
 
 const UserShow = ({message}) => {
     // console.log(message);
     const dispatch = useDispatch()
     const {id} = useParams()
+    const currentuserdeets = useSelector(state => state.session.user)
     const userdeets = useSelector(state => state.users[id])
     const boarddeets = useSelector(state => state.boards[id])
     const [createShow, setCreateShow] = useState("Show")
     const [loading, setLoading] = useState(true)
+    const [showFollowerModal, setShowFollowerModal] = useState(false);
+    const [showFollowingModal, setShowFollowingModal] = useState(false);
+    
+
 
     const userImages = useSelector(state => {
         let arr = []   
@@ -73,6 +83,23 @@ const UserShow = ({message}) => {
             <img className="userShowPic" src={userdeets && userdeets.profilePicUrl} alt="" />
             <h1>{userdeets && userdeets.username}</h1>
             <p>@{userdeets && userdeets.username}</p>
+            <div className="userShowFollows">
+                <h4 onClick={() => setShowFollowerModal(true)}>{userdeets && userdeets.followers.length+ 1} Followers </h4> 
+                    {showFollowerModal && (
+                        <Modal onClose={() => setShowFollowerModal(false)}>
+                            <FollowerModal />
+                        </Modal>
+                    )}
+                <h4> · </h4>
+                <h4 onClick={() => setShowFollowingModal(true)}>{userdeets && userdeets.following.length+ 1} Following </h4>
+                    {showFollowingModal && (
+                        <Modal onClose={() => setShowFollowingModal(false)}>
+                            <FollowingModal />
+                        </Modal>
+                    )}
+            </div>
+
+            <button className="userShowFollowButton">{currentuserdeets.id === userdeets.id ? "true" : "false"}</button>
             <br />
 
             <div className="createshow">

@@ -5,6 +5,8 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./SignUpForm.css";
 import Loading from "../Loading/Loading";
+import logo from '../../assets/images/wink-xxl.png'
+
 
 function SignUpForm() {
   const dispatch = useDispatch();
@@ -45,7 +47,10 @@ function SignUpForm() {
     
   };
 
-  return (
+  return (    
+  <div className="modalForm">
+      <div className='modalLogo'><a href=""><img className="mLogo" src={logo} alt="" /></a></div>
+      <div><h1>Welcome to MyIntrest</h1></div>
     <div className='modalDetails'>
       <form onSubmit={handleSubmit} >
         <ul>
@@ -89,6 +94,7 @@ function SignUpForm() {
       <button className="modalButtonDemo" onClick={demoSignIn}>Sign In with Demo User</button>
       {loading ? <Loading/> : ''}
 
+    </div>
     </div>
   );
 }

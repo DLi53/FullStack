@@ -25,7 +25,7 @@ export function ModalProvider({ children }) {
   );
 }
 
-export function Modal({ onClose, children }) {
+export function Modal2({ onClose, children }) {
   const modalNode = useContext(ModalContext);
   if (!modalNode) return null;
 
@@ -34,8 +34,8 @@ export function Modal({ onClose, children }) {
       <div id="modal-background" onClick={onClose} />
       <div id="modal-content">
         <div id="x" onClick={onClose}>X</div>
-        {/* <div className='modalLogo'><a href=""><img className="mLogo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png?20160129083321" alt="" /></a></div> */}
-        {/* <div className='modalLogo'><a href=""><img className="mLogo" src={logo} alt="" /></a></div>
+        {/* <div className='modalLogo'><a href=""><img className="mLogo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png?20160129083321" alt="" /></a></div>
+        <div className='modalLogo'><a href=""><img className="mLogo" src={logo} alt="" /></a></div>
         <div><h1>Welcome to MyIntrest</h1></div> */}
         <div>{children}</div>
 

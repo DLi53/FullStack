@@ -65,3 +65,9 @@
 .plusCreateBoard:hover {
     background-color: rgb(230,230,230);
 }
+
+.userShowFollows{
+    display: flex;
+    justify-content: space-evenly;
+    width: 250px;
+}

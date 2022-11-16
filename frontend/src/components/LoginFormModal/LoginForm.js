@@ -5,6 +5,8 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./LoginForm.css";
 import Loading from "../Loading/Loading";
+import logo from '../../assets/images/wink-xxl.png'
+
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -42,43 +44,47 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='modalDetails'>
-      <ul>
-        {errors.map(error => <li key={error}>{error}</li>)}
-      </ul>
-      <label className="modalUsername">
-        Username
+    <div className="modalForm">
+      <div className='modalLogo'><a href=""><img className="mLogo" src={logo} alt="" /></a></div>
+      <div><h1>Welcome to MyIntrest</h1></div>
+      <form onSubmit={handleSubmit} className='modalDetails'>
+        <ul>
+          {errors.map(error => <li key={error}>{error}</li>)}
+        </ul>
+        <label className="modalUsername">
+          Username
+          <br />
+          <input
+            className="modalInputs"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Username"
+            required
+          />
+        </label>
         <br />
-        <input
-          className="modalInputs"
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Username"
-          required
-        />
-      </label>
-      <br />
-      <label>
-        Password
+        <label>
+          Password
+          <br />
+          <input
+            className="modalInputs"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            required
+          />
+        </label>
         <br />
-        <input
-          className="modalInputs"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          required
-        />
-      </label>
-      <br />
-      <button className="modalButton" type="submit">Log In</button>
-      <br />
-      <div className="or">or</div>
-      <br />
-      <button className="modalButtonDemo" onClick={demoSignIn}>Sign In with Demo User</button>
-      {loading ? <Loading/> : ''}
-    </form>
+        <button className="modalButton" type="submit">Log In</button>
+        <br />
+        <div className="or">or</div>
+        <br />
+        <button className="modalButtonDemo" onClick={demoSignIn}>Sign In with Demo User</button>
+        {loading ? <Loading/> : ''}
+      </form>
+   </div>
   );
 }
 
