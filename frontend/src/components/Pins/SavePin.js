@@ -26,7 +26,7 @@ const SavePin = ({imageId}) => {
     const handleClick = (e)=> {
         e.preventDefault()
         setBoardSelected(e.target.value)
-        console.log(boardSelected);
+        // console.log(boardSelected);
     }
 
     const boardOptions = boards.map(
@@ -46,7 +46,7 @@ const SavePin = ({imageId}) => {
 
     const handleSubmit = () => {
    
-        console.log(boardSelected);
+        // console.log(boardSelected);
 
 
         dispatch(createPin({image_id: imageId, board_id: boardSelected}))

@@ -43,8 +43,8 @@ const addPin = pinData => {
     }
 }
 export const createPin = (pinData) => async dispatch => {
-    console.log('INSIDE CREATE PINNNNNNNNNNNNNN');
-    console.log(pinData)
+    // console.log('INSIDE CREATE PINNNNNNNNNNNNNN');
+    // console.log(pinData)
     const res = await csrfFetch(`/api/pins`, {
         method: 'POST',
         body: JSON.stringify(pinData),
@@ -52,7 +52,7 @@ export const createPin = (pinData) => async dispatch => {
             'Content-Type': 'application/json'
         }
     })
-    console.log(res);
+    // console.log(res);
     // debugger
 
     const data = await res.json();

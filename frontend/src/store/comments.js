@@ -44,7 +44,7 @@ const addComment = commentData => {
 }
 export const createComment = (commentData) => async dispatch => {
 
-    console.log(commentData)
+    // console.log(commentData)
     const res = await csrfFetch(`/api/comments`, {
         method: 'POST',
         body: JSON.stringify(commentData),
@@ -52,7 +52,7 @@ export const createComment = (commentData) => async dispatch => {
             'Content-Type': 'application/json'
         }
     })
-    console.log(res);
+    // console.log(res);
     // debugger
 
     const data = await res.json();
