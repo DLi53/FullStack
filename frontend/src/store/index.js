@@ -6,6 +6,8 @@ import usersReducer from "./users";
 import boardsReducer from "./boards";
 import pinsReducer from "./pins";
 import commentsReducer from "./comments";
+import followsReducer from "./follows";
+
 
 
 const rootReducer = combineReducers({ 
@@ -14,7 +16,8 @@ const rootReducer = combineReducers({
   images: imagesReducer,
   boards: boardsReducer,
   pins: pinsReducer,
-  comments: commentsReducer
+  comments: commentsReducer,
+  following: followsReducer
  });
 
 let enhancer;

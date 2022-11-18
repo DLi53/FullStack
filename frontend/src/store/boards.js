@@ -93,10 +93,12 @@ const removeBoard = boardId => {
     }
 }
 
-export const deleteBoard = (boardId) => async dispatch => {
-    const res = await fetch(`/api/boards/${boardId}`, {
+export const deleteBoard = (currentUserId, boardId) => async dispatch => {
+    // console.log(currentUserId, boardId)
+    const res = await csrfFetch(`/api/users/${currentUserId}/boards/${boardId}`, {
         method: 'DELETE'
     })
+    // console.log(res)
     dispatch(removeBoard(boardId))
 }
 

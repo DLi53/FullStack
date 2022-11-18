@@ -97,7 +97,8 @@ const removeFollow = followId => {
 }
 
 export const deleteFollow = (followId) => async dispatch => {
-    const res = await fetch(`api/follows/${followId}`, {
+    // console.log(followId)
+    const res = await csrfFetch(`/api/follows/${followId}`, {
         method: 'DELETE'
     })
     dispatch(removeFollow(followId))

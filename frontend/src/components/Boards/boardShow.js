@@ -1,15 +1,19 @@
 import Masonry from "react-masonry-css";
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { fetchBoards } from "../../store/boards"
 import { fetchPins } from "../../store/pins"
 import ImageListItem from "../ImageIndexPage/ImageListItem"
+import { Modal } from '../Modal/modal.jsx';
+import BoardDeleteModal from "./BoardDeleteModal";
+
 
 const BoardShow = () => {
     const dispatch = useDispatch()
     const {boardId} = useParams()
-
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const boardTitle = useSelector(state => state.boards[boardId].title)
 
     const pins = useSelector(state => {
         let arr = []
@@ -65,10 +69,20 @@ const BoardShow = () => {
 
     return ( 
         <div className="BoardShow">
+
+            <div className="BoardDeleteIcon" onClick={() => setShowDeleteModal(true)} ><i className="fa-solid fa-trash"></i></div>
+            <h2>{boardTitle && boardTitle}</h2>
+                    
+                    {showDeleteModal && (
+                        <Modal onClose={() => setShowDeleteModal(false)}>
+                            <BoardDeleteModal />
+                        </Modal>
+                    )}
             <br />
             <br />
             <br />
-            {imageListItems}
+            {/* {imageListItems} */}
+            <div className="BoardShowImages">{allImages}</div>
         </div>
      );
 }

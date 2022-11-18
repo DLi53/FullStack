@@ -43,3 +43,28 @@
 .boardTitle {
     margin-top: 60px;
 }
+
+.BoardDeleteIcon{
+    color: grey;
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 85%;
+    margin-top: 20px;
+    cursor: pointer;
+
+}
+
+.BoardShow{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.BoardShowImages{
+    display: flex ;
+    flex-wrap: wrap;
+    width: 85%;
+    justify-content: space-evenly;
+}

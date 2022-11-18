@@ -4,32 +4,37 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { fetchBoards } from '../../store/boards';
 import { fetchImages } from '../../store/images';
-import { useParams } from 'react-router-dom';
+import { Redirect, useHistory, useParams } from 'react-router-dom';
 import { createPin, fetchPins } from '../../store/pins';
 
 const SavePin = ({imageId}) => {
-    const currentUserId = useSelector(state => state.session.user.id)
+    const currentUser = useSelector(state => state.session.user)
     const dispatch = useDispatch()
+    const history = useHistory()
+    const [redirect, setRedirect] = useState(false)
 
-    const boards = useSelector(state => {
-        let arr = []
-        Object.values(state.boards).forEach(board => {
-            if (board.userId === currentUserId) {
-                arr.push(board)
-            }
-        })
-        return arr
-    })
+    // const boards = useSelector(state => {
+    //     let arr = []
+    //     Object.values(state.boards).forEach(board => {
+    //         if (board.userId === currentUser.id) {
+    //             arr.push(board)
+    //         }
+    //     })
+    //     return arr
+    // })
 
-    const [boardSelected, setBoardSelected] = useState('')
-    
+    const [boardSelected, setBoardSelected] = useState(currentUser.boards[0].id)
+    // console.log(boardSelected)
+
     const handleClick = (e)=> {
-        e.preventDefault()
+        // e.preventDefault()
         setBoardSelected(e.target.value)
         // console.log(boardSelected);
     }
 
-    const boardOptions = boards.map(
+  
+
+    const boardOptions = currentUser.boards.map(
         board => <option 
                     key={board.id} 
                     value ={board.id}
@@ -39,23 +44,29 @@ const SavePin = ({imageId}) => {
 
     useEffect(() => {
 
-        dispatch(fetchBoards(currentUserId))
+        dispatch(fetchBoards(currentUser.id))
     },[])
 
 
 
     const handleSubmit = () => {
    
-        // console.log(boardSelected);
-
-
-        dispatch(createPin({image_id: imageId, board_id: boardSelected}))
-        // dispatch(fetchPins())
+        
+        dispatch(createPin({image_id: imageId, board_id: `${boardSelected}`}))
+        // .then(()=> { history.push(`/user/${currentUser.id}`)})
+        dispatch(fetchPins())
+        setTimeout(setRedirect(true), 5000)
     }
+
+    if (redirect) {
+        return ( 
+        <Redirect to={`/user/${currentUser.id}`} />
+    )}
+
 
     return ( 
         <form action="" className="savePin" onSubmit={handleSubmit}>
-            <select id="" onClick={handleClick} className="dropdownPin">
+            <select id="" onChange={handleClick} className="dropdownPin">
                 {boardOptions}
 
             </select>

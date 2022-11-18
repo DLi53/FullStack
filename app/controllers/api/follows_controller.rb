@@ -3,9 +3,14 @@ class Api::FollowsController < ApplicationController
     # skip_before_action :verify_authenticity_token
 
     def index
-        @follows = Follow.all
-        # @follows = follow.where(user_id: params[:user_id])
-        render :index
+        # @follows = Follow.all
+        if logged_in?
+            @follows = Follow.where(follower_id: current_user.id)
+            render :index
+        # else
+        #     @follows = Follow.all
+        #     render :index
+        end
     end
 
     def show
@@ -16,7 +21,6 @@ class Api::FollowsController < ApplicationController
     def create
         @follow = Follow.new(follow_params)
         if @follow.save
-
 
             render :show
         else
@@ -36,7 +40,8 @@ class Api::FollowsController < ApplicationController
     end
 
     def destroy
-        @follow = follow.find(params[:id])
+
+        @follow = Follow.find(params[:id])
         if @follow && @follow.destroy
             render json: ["Follow is Gone"]
         else

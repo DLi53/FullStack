@@ -1,7 +1,8 @@
 json.user do
-    json.extract! @user, :id, :username, :followers, :following
+    json.extract! @user, :id, :username, :followers, :following, :boards, :comments, :pins
     # json.profilePicUrl @user.profilepic.url
-    
+        json.followers @user.followers.ids
+        json.following @user.following.ids
     if @user.profilepic.attached?
         json.profilePicUrl @user.profilepic.url
     else

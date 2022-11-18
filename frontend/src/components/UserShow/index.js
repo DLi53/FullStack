@@ -14,6 +14,8 @@ import { Modal } from '../Modal/modal.jsx';
 import LoginForm from "../LoginFormModal/LoginForm";
 import FollowerModal from "./FollowerModal";
 import FollowingModal from "./FollowingModal";
+import FollowButton from "../FollowButton";
+import { fetchFollows } from "../../store/follows";
 
 
 const UserShow = ({message}) => {
@@ -45,12 +47,15 @@ const UserShow = ({message}) => {
     const createIt = createShow === "Create" ? pinCreateLink : boardCreateLink
 
 
+
+
     useEffect(() => {
 
         dispatch(fetchUsers())
+        dispatch(fetchFollows())
         dispatch(fetchImages())
         .finally(() => {setLoading(false)})
-    },[])
+    },[id])
 
     const breakpointColumnsObj = {
         default: 7,
@@ -87,19 +92,19 @@ const UserShow = ({message}) => {
                 <h4 onClick={() => setShowFollowerModal(true)}>{userdeets && userdeets.followers.length+ 1} Followers </h4> 
                     {showFollowerModal && (
                         <Modal onClose={() => setShowFollowerModal(false)}>
-                            <FollowerModal />
+                            <FollowerModal followers={userdeets.followers}/>
                         </Modal>
                     )}
                 <h4> · </h4>
                 <h4 onClick={() => setShowFollowingModal(true)}>{userdeets && userdeets.following.length+ 1} Following </h4>
                     {showFollowingModal && (
                         <Modal onClose={() => setShowFollowingModal(false)}>
-                            <FollowingModal />
+                            <FollowingModal followings={userdeets.following} closingModal={() => setShowFollowingModal(false)}/>
                         </Modal>
                     )}
             </div>
 
-            <button className="userShowFollowButton">{currentuserdeets.id === userdeets.id ? "true" : "false"}</button>
+            <div className="userShowFollowButton" >{currentuserdeets.id === userdeets.id ? "" : <FollowButton user={userdeets}/>}</div>
             <br />
 
             <div className="createshow">

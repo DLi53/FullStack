@@ -35,8 +35,10 @@ class Api::BoardsController < ApplicationController
     end
 
     def destroy
-        @board = board.find(params[:id])
+       
+        @board = Board.find_by(id: params[:id])
         if @board && @board.destroy
+       
             render json: ["Board Deleted"]
         else
             render json: ["Board doesn't exist"]
@@ -46,7 +48,7 @@ class Api::BoardsController < ApplicationController
     private
     def board_params
         params.require(:board).permit(:title, :user_id)
-        
+
     end
     
 end

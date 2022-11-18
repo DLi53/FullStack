@@ -1,7 +1,9 @@
 @users.each do |user|
     json.set! user.id do
-        json.extract! user, :id, :username, :followers, :following
+        json.extract! user, :id, :username
         
+        json.followers user.followers.ids
+        json.following user.following.ids
         if user.profilepic.attached?
             json.profilePicUrl user.profilepic.url
         else

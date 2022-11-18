@@ -99,13 +99,14 @@
 }
 
 #x {
+    position: absolute;
     display: flex;
     justify-content: flex-end;
     cursor: pointer;
     font-weight: bold;
     font-size: 20px;
     margin-left: 80%;
-    margin-top: 5%;
+    margin-bottom: 90%;
 
 }
 

@@ -1,10 +1,10 @@
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import ImageIndexPage from "./components/ImageIndexPage";
 import NavBar from "./components/NavBar";
 import Modal from './components/Modal/modal.jsx';
 import ImageShowPage from "./components/ImageShowPage";
 import ImageCreatePage from "./components/ImageCreatePage";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchImages } from "./store/images";
 import { fetchUsers } from "./store/users";
@@ -19,25 +19,27 @@ import BoardShow from "./components/Boards/boardShow";
 
 function App() {
 
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
-    // useEffect(() => {
+    useEffect(() => {
     //     dispatch(fetchImages())
-    //     dispatch(fetchUsers())
+        dispatch(fetchUsers())
     //     dispatch(fetchBoards())
     //     dispatch(fetchPins())
-    // },[])
+    },[])
+    const sessionUser = useSelector((state) => state.session.user);
+
 
   return (
     <>
       {/* <Modal /> */}
       
       <NavBar/>
-
+{/* { sessionUser ?  */}
       <Switch>
-        <Route exact path="/">
-          <ImageIndexPage/>
-        </Route>
+  
+
+
         <Route path="/user/:id">
           <UserShow/>
         </Route>
@@ -56,7 +58,23 @@ function App() {
         <Route path="/board-builder">
           <BoardCreate/>
         </Route>
+
+        <Route exact path="/">
+          <ImageIndexPage/>
+        </Route>
+        <Route render={() => <Redirect to={{pathname: "/"}} />} />
       </Switch>
+
+
+
+      {/* : 
+       <Switch>
+        <Route exact path="/">
+          <ImageIndexPage/>
+        </Route>
+          <Route render={() => <Redirect to={{pathname: "/"}} />} />
+      </Switch>
+      } */}
     </>
   );
 }

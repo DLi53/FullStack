@@ -9,6 +9,9 @@ import { Link } from "react-router-dom";
 import { fetchUsers } from "../../store/users";
 import SavePin from "../Pins/SavePin";
 import Comments from '../Comments'
+import FollowButton from "../FollowButton";
+import UserDeets from "./UserDeets";
+import { fetchFollows } from "../../store/follows";
 
 const ImageShowPage = () => {
     const dispatch = useDispatch()
@@ -25,7 +28,7 @@ const ImageShowPage = () => {
 
     useEffect(() => {
         dispatch(fetchImage(id))
-        // dispatch(fetchUsers())
+        dispatch(fetchFollows())
     },[id])
 
     const editPage = <Link className="updateItem" to={`/pins/${id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Link>
@@ -58,16 +61,8 @@ const ImageShowPage = () => {
                                 <p className="imageDescription">{imagedeets && imagedeets.description}</p>
                             </div>
 
-                            <div className="userdeets">
-                                <Link to={`/user/${userdeets && userdeets.id}`} className="userdeetsleft">
-                                    <img className="profileIcon" src={userdeets && userdeets.profilePicUrl} alt="" />
-                                    <h4>{userdeets && userdeets.username}</h4>
-                                </Link>
-                                <div className="userdeetsright">
-                                    <button className="followShow">Follow</button>
-                                </div>
-
-                            </div>
+                     
+                            <UserDeets userdeets = {userdeets && userdeets} />
                             <div className="commentsShow">
                                 <Comments></Comments>
                             </div>

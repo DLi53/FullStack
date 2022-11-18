@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :create, :edit] do
       resources :boards
     end
+    resources :boards
     resources :pins
     resources :follows
     resources :images

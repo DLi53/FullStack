@@ -50,6 +50,10 @@ class User < ApplicationRecord
     through: :following_connect,
     source: :followee
 
+  has_many :pins,
+    through: :boards,
+    source: :pins
+
   has_one_attached :profilepic
 
 

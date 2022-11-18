@@ -15,7 +15,7 @@ const ImageCreatePage = () => {
     const sessionUser = useSelector((state) => state.session.user)
     const user = useSelector((state) => state.session.user.id)
 
-    const [uploaderId, setUploaderId] = useState(user && user.id)
+    const [uploaderId, setUploaderId] = useState(sessionUser && sessionUser.id)
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [uploaded, setUploaded] = useState('')
@@ -43,7 +43,7 @@ const ImageCreatePage = () => {
         const formData = new FormData();
         formData.append('image[title]', title);
         formData.append('image[description]', description);
-        formData.append('image[uploader_id]', uploaderId);
+        formData.append('image[uploader_id]', sessionUser.id);
 
         if (photoFile) {
             formData.append('image[photo]', photoFile);
@@ -105,8 +105,8 @@ const ImageCreatePage = () => {
 
 
                             <div className="username">
-                                <img className="createProfilePic" src={user && user.profilePicUrl} alt="" />
-                                {user && user.username}
+                                <img className="createProfilePic" src={sessionUser && sessionUser.profilePicUrl} alt="" />
+                                {sessionUser && sessionUser.username}
                             </div>
                             <input className="descriptionInput" 
                             id="" 

@@ -1,7 +1,7 @@
 import './index.css'
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useParams } from "react-router-dom";
+import { Redirect, useHistory, useParams } from "react-router-dom";
 import { fetchImage } from '../../store/images';
 import { useState } from 'react';
 import * as sessionActions from "../../store/images";
@@ -22,6 +22,7 @@ const ImageEditPage = () => {
     const [updated , setUpdated] = useState('')
     const [redirect, setRedirect] = useState(false)
     const [redirectDelete, setRedirectDelete] = useState(false)
+    const history = useHistory()
 
 
 
@@ -56,8 +57,11 @@ const ImageEditPage = () => {
 
 
     if (redirect) {
+
         return ( 
         <Redirect to={`/pins/${imagedeets.id}`} />
+        // history.push(`/pins/${imagedeets.id}`) 
+
     )}
 
     if (redirectDelete) {

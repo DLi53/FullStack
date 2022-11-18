@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from '../../store/session'
 import './dropdown.css'
 
@@ -9,6 +9,7 @@ const DropDown = () => {
     const dispatch = useDispatch()
     const [showMenu, setShowMenu] = useState(false)
     const sessionUser = useSelector((state) => state.session.user)
+    const [redirect, setRedirect] = useState(false)
 
 
     const history = useHistory()
@@ -33,9 +34,18 @@ const DropDown = () => {
         e.preventDefault();
         // console.log('yoo');
         dispatch(sessionActions.logout())
-        .then(()=> { history.push("/")})
+        // .then(()=> { history.push("/")})
+        setTimeout(setRedirect(true), 5000)
+
 
     }
+
+    if (redirect) {
+
+        return ( 
+        <Redirect to={`/`} />
+    )}
+
 
     //make function to show dropdown or nah
 
