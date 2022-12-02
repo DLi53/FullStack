@@ -14,6 +14,9 @@ const BoardShow = () => {
     const {boardId} = useParams()
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const boardTitle = useSelector(state => state.boards[boardId].title)
+    const boardUserId = useSelector(state => state.boards[boardId].userId)
+    const sessionUserId = useSelector(state => state.session.user.id)
+
 
     const pins = useSelector(state => {
         let arr = []
@@ -69,10 +72,11 @@ const BoardShow = () => {
 
     return ( 
         <div className="BoardShow">
-
+            {boardUserId === sessionUserId ? 
             <div className="BoardDeleteIcon" onClick={() => setShowDeleteModal(true)} ><i className="fa-solid fa-trash"></i></div>
+            : ''}
             <h2>{boardTitle && boardTitle}</h2>
-                    
+                    {allImages.length} Pins
                     {showDeleteModal && (
                         <Modal onClose={() => setShowDeleteModal(false)}>
                             <BoardDeleteModal />

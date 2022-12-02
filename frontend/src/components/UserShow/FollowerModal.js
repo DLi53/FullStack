@@ -10,7 +10,7 @@ const FollowerModal = ({followers}) => {
     const followersMapped = newfollowers.map(followeruser => <UserDeets userdeets={followeruser} key={followeruser.id}/>)
 
 
-    console.log(followers)
+    // console.log(followers)
     return ( 
         <div className="FollowModal">
             <h2>Followers:</h2>

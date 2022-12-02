@@ -12,6 +12,7 @@ const SavePin = ({imageId}) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [redirect, setRedirect] = useState(false)
+    const {id} = useParams()
 
     // const boards = useSelector(state => {
     //     let arr = []
@@ -23,7 +24,7 @@ const SavePin = ({imageId}) => {
     //     return arr
     // })
 
-    const [boardSelected, setBoardSelected] = useState(currentUser.boards[0].id)
+    const [boardSelected, setBoardSelected] = useState(currentUser.boards[0])
     // console.log(boardSelected)
 
     const handleClick = (e)=> {
@@ -33,6 +34,7 @@ const SavePin = ({imageId}) => {
     }
 
   
+    // console.log(boardSelected)
 
     const boardOptions = currentUser.boards.map(
         board => <option 
@@ -52,7 +54,7 @@ const SavePin = ({imageId}) => {
     const handleSubmit = () => {
    
         
-        dispatch(createPin({image_id: imageId, board_id: `${boardSelected}`}))
+        dispatch(createPin({image_id: imageId, board_id: `${boardSelected.id}`}))
         // .then(()=> { history.push(`/user/${currentUser.id}`)})
         dispatch(fetchPins())
         setTimeout(setRedirect(true), 5000)

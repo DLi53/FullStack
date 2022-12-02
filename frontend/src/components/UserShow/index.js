@@ -44,6 +44,7 @@ const UserShow = ({message}) => {
 
     const boardCreateLink = <Link to='/board-builder' className="plusCreateBoard"><i className="fa-solid fa-plus"></i></Link>
     const pinCreateLink = <Link to='/pin-builder' className="plusCreateBoard"><i className="fa-solid fa-plus"></i></Link>
+   
     const createIt = createShow === "Create" ? pinCreateLink : boardCreateLink
 
 
@@ -119,7 +120,7 @@ const UserShow = ({message}) => {
                     onClick = {(e) => setCreateShow("Show")}
                     >Show</div>
             </div>
-            {createIt}
+            {currentuserdeets.id === userdeets.id ? createIt : '' }
             <br />
             <div className="CreateShowSection">
                 {shown}

@@ -40,11 +40,21 @@ export const login = (user) => async (dispatch) => {
     }),
   });
   const data = await res.json();
-
+  
   dispatch(setCurrentUser(data.user));
   dispatch(fetchFollows())
   return res;
 };
+
+export const fetchSession = () => async (dispatch) => {
+
+  const res = await csrfFetch("/api/session")
+  const data = await res.json();
+  
+  dispatch(setCurrentUser(data.user));
+  return res;
+};
+
 
 export const logout = () => async (dispatch) => {
   const res = await csrfFetch("/api/session", {

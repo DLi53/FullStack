@@ -28,7 +28,7 @@ const NavBar = () => {
     } else {
         sessionLinks = (
         <div className='sessionButtons'>
-            <p><a href="">Portfolio</a></p>
+            <p><a href="https://danielli.dev/">Portfolio</a></p>
             <p><a href="https://github.com/DLi53">GitHub</a></p>
             <p><a href="https://www.linkedin.com/in/danielli52/">LinkedIn</a></p>
             <div className="sessionbutt">
@@ -68,6 +68,7 @@ const NavBar = () => {
             <div className='searchBar'><SearchBar></SearchBar></div>
 
             <div className='backNav'>
+                <div className='icons'><a href="https://danielli.dev/"><i className="fa-solid fa-image"></i></a></div>
                 <div className='icons'><a href="https://github.com/DLi53"><i className="fa-brands fa-github"></i></a></div>
                 <div className='icons'><a href="https://www.linkedin.com/in/danielli52/"><i className="fa-brands fa-linkedin-in"></i></a></div>
                 {/* <div className='icons'><a href=""><i className="fa-solid fa-user"></i></a></div> */}

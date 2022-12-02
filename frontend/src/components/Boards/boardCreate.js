@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/boards";
+import * as sessionActions2 from "../../store/session";
+
 
 
 const BoardCreate = () => {
@@ -17,6 +19,7 @@ const BoardCreate = () => {
 
         dispatch(sessionActions.createBoard({title, currentUserId}))
         dispatch(sessionActions.fetchBoards())
+        dispatch(sessionActions2.fetchSession())
         setTimeout(setRedirect(true), 5000)
     }
 

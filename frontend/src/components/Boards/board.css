@@ -68,3 +68,10 @@
     width: 85%;
     justify-content: space-evenly;
 }
+
+.BoardDeleteModal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
