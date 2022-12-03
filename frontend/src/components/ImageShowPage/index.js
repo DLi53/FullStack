@@ -29,6 +29,7 @@ const ImageShowPage = () => {
     useEffect(() => {
         dispatch(fetchImage(id))
         dispatch(fetchFollows())
+
     },[id])
 
     const editPage = <Link className="updateItem" to={`/pins/${id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Link>

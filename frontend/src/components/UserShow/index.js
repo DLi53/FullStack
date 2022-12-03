@@ -90,14 +90,14 @@ const UserShow = ({message}) => {
             <h1>{userdeets && userdeets.username}</h1>
             <p>@{userdeets && userdeets.username}</p>
             <div className="userShowFollows">
-                <h4 onClick={() => setShowFollowerModal(true)}>{userdeets && userdeets.followers.length+ 1} Followers </h4> 
+                <h4 className="userShowFollowsLinks" onClick={() => setShowFollowerModal(true)}>{userdeets && userdeets.followers.length+ 1} Followers </h4> 
                     {showFollowerModal && (
                         <Modal onClose={() => setShowFollowerModal(false)}>
                             <FollowerModal followers={userdeets.followers}/>
                         </Modal>
                     )}
                 <h4> · </h4>
-                <h4 onClick={() => setShowFollowingModal(true)}>{userdeets && userdeets.following.length+ 1} Following </h4>
+                <h4 className="userShowFollowsLinks" onClick={() => setShowFollowingModal(true)}>{userdeets && userdeets.following.length+ 1} Following </h4>
                     {showFollowingModal && (
                         <Modal onClose={() => setShowFollowingModal(false)}>
                             <FollowingModal followings={userdeets.following} closingModal={() => setShowFollowingModal(false)}/>

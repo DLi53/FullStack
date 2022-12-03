@@ -8,12 +8,12 @@ const UserDeets = ({userdeets}) => {
     return ( 
         <div className="userdeets">
             <Link to={`/user/${userdeets && userdeets.id}`} className="userdeetsleft" >
-                <img className="profileIcon" src={userdeets.profilePicUrl} alt="" />
+                <img className="profileIcon" src={userdeets && userdeets.profilePicUrl} alt="" />
                 <h4>{userdeets && userdeets.username}</h4>
             </Link>
             <div className="userdeetsright">
                 {/* <button className="followShow">Follow</button> */}
-                { self === userdeets.id ? '' : <FollowButton user={userdeets}/> }
+                { userdeets && (self === userdeets.id) ? '' : <FollowButton user={userdeets && userdeets}/> }
             </div>
 
         </div>

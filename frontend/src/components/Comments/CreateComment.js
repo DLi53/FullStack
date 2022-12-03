@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { createComment, fetchComments } from "../../store/comments";
+import { fetchUsers } from "../../store/users";
 
 const CreateComment = () => {
     const dispatch = useDispatch()
@@ -20,6 +21,7 @@ const CreateComment = () => {
     }
 
     useEffect(() => {
+        dispatch(fetchUsers())
         dispatch(fetchComments())
     },[refresh])
 
