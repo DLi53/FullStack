@@ -41,11 +41,12 @@ const FollowButton = ({user}) => {
     const [refetch, setRefetch] = useState(true)
 
     useEffect(()=> {
-        console.log('fetching');
+        // console.log('fetching');
         dispatch(fetchFollows())
        
 
     },[refetch])
+
 
     const [redirect, setRedirect] = useState(false)
  
@@ -54,11 +55,14 @@ const FollowButton = ({user}) => {
     const createfollow = () =>{
         dispatch(createFollow({follower_id: currentUserId, followee_id: user.id}))
         setRefetch(!refetch)
+        // setRedirect(true)
     }
 
     const deletefollow = () => {
         dispatch(deleteFollow(followId)) 
         setRefetch(!refetch)
+        // setRedirect(true)
+
     }
 
 
@@ -72,7 +76,10 @@ const FollowButton = ({user}) => {
     }
 
     
-
+    if (redirect) {
+            return ( 
+            <Redirect to={`/user/${currentUserId}`} />
+        )}
 
 
 

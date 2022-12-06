@@ -29,9 +29,9 @@ const SavePin = ({imageId}) => {
 
     const handleClick = (e)=> {
         // e.preventDefault()
-        console.log(boardSelected)
+        // console.log(boardSelected)
         setBoardSelected(e.target.value)
-        console.log(boardSelected)
+        // console.log(boardSelected)
     }
 
   
@@ -54,7 +54,7 @@ const SavePin = ({imageId}) => {
 
     const handleSubmit = () => {
    
-        console.log(imageId, boardSelected.id)
+        // console.log(imageId, boardSelected.id)
         dispatch(createPin({image_id: imageId, board_id: `${boardSelected}`}))
         // .then(()=> { history.push(`/user/${currentUser.id}`)})
         dispatch(fetchPins())
