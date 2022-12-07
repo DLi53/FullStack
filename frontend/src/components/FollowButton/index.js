@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { createFollow, deleteFollow, fetchFollow, fetchFollows } from '../../store/follows'
+import { fetchUsers } from '../../store/users'
 import './followbutton.css'
 
 const FollowButton = ({user}) => {
@@ -43,6 +44,7 @@ const FollowButton = ({user}) => {
     useEffect(()=> {
         // console.log('fetching');
         dispatch(fetchFollows())
+        dispatch(fetchUsers())
        
 
     },[refetch])

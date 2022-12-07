@@ -29,6 +29,8 @@ const UserShow = ({message}) => {
     const [loading, setLoading] = useState(true)
     const [showFollowerModal, setShowFollowerModal] = useState(false);
     const [showFollowingModal, setShowFollowingModal] = useState(false);
+    // const userdeetsfollowernum = useSelector(state => state.users[id].followers.length+1)
+    // const userdeetsfollowingnum = useSelector(state => state.users[id].following.length+1)
     
 
 
