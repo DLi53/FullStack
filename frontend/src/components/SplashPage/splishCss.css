@@ -1,3 +1,406 @@
+
 #myVideo{
     width: 100%;
+}
+
+
+
+.splish-page {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.splish-gradient {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+    background-image: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1) 100%);
+}
+
+.splish-titles {
+    position: absolute;
+    /* z-index: 10; */
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.splish-titles div {
+    height: 70px;
+    box-sizing: border-box;
+    font-weight: 1000px;
+    margin: 5px;
+} 
+
+.animated-text {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+}
+.animated-text div {
+    width: 1000px;
+}
+
+.destination-title {
+    text-align: center;
+    color: rgb(123, 209, 237);
+    position: absolute;
+    opacity: 0;
+    animation: 25s linear fade-text1 infinite;
+}
+
+.treat-title {
+    text-align: center;
+    color: pink;
+    position: absolute;
+    opacity: 0;
+    animation: 25s linear fade-text2 infinite;
+}
+
+.pet-title {
+    text-align: center;
+    color: rgb(255, 81, 0);
+    position: absolute;
+    opacity: 0;
+    animation: 25s linear fade-text3 infinite;
+}
+
+.furniture-title {
+    text-align: center;
+    color: rgb(239, 221, 107);
+    position: absolute;
+    opacity: 0;
+    animation: 25s linear fade-text4 infinite;
+}
+
+@keyframes fade-text1 {
+    0% {
+        opacity: 0;
+        transform: translateY(70%)
+    }
+
+    5% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    25% {
+        opacity: 0;
+        transform: translateY(-70%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-70%);
+    }
+}
+
+@keyframes fade-text2 {
+    25% {
+        opacity: 0;
+        transform: translateY(70%);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    45% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateY(-70%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-70%);
+    }
+
+}
+
+@keyframes fade-text3 {
+    50% {
+        opacity: 0;
+        transform: translateY(70%);
+        }
+    
+    55% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    75% {
+        opacity: 0;
+        transform: translateY(-70%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-70%);
+    }
+    
+}
+
+@keyframes fade-text4 {
+    75% {
+        opacity: 0;
+        transform: translateY(70%);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    95% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-70%);
+    }
+}
+
+/* Splash Pictures */
+
+.splish-pins-section {
+    width: 100%;
+    height: auto;
+
+    position: relative;
+    top: -5%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.splish-columns {
+    min-width: 236px;
+    overflow: hidden;
+    height: 850px;
+    margin: 0 10px;
+}
+
+.splish-pics {
+    position: absolute;
+    top: 20%;
+}
+
+.splish-pin img {
+    width: 236px;
+    height: auto;
+    box-sizing: border-box;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+#column1,
+#column7 {
+    position: relative;
+    /* animation: 15s linear fade-cols1 infinite; */
+}
+
+#column2,
+#column6 {
+    margin-top: 100px;
+    position: relative;
+}
+
+#column3,
+#column5 {
+    margin-top: 150px;
+    position: relative;
+}
+
+#column4 {
+    margin-top: 250px;
+    position: relative;
+  
+}
+
+.destination-pics {
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    animation: 25s linear fade-pics1 infinite;
+}
+
+.treat-pics {
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    animation: 25s linear fade-pics2 infinite;
+}
+
+.pet-pics {
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    animation: 25s linear fade-pics3 infinite;
+}
+
+.furniture-pics {
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    animation: 25s linear fade-pics4 infinite;
+}
+
+@keyframes fade-pics1 {
+    0% {
+        opacity: 0;
+        transform: translateY(20%)
+    }
+
+    5% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    25% {
+        opacity: 0;
+        transform: translateY(-20%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20%);
+    }
+}
+
+@keyframes fade-pics2 {
+    25% {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    45% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateY(-20%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20%);
+    }
+}
+
+@keyframes fade-pics3 {
+    50% {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+
+    55% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    70% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    75% {
+        opacity: 0;
+        transform: translateY(-20%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20%);
+    }
+}
+
+@keyframes fade-pics4 {
+    75% {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    95% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20%);
+    }
+}
+
+@keyframes fade-cols1{
+    0% {
+        opacity: 0;
+        transform: translateY(20%)
+    }
+
+    5% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    25% {
+        opacity: 0;
+        transform: translateY(-20%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20%);
+    }
 }
