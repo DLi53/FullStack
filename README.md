@@ -130,7 +130,6 @@ export default CreateComment;
 
 ## Future Plans
 
-* Follows
 * Search Bar
 
 ## Credits
